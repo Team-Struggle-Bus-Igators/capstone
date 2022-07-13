@@ -15,14 +15,6 @@ import Home from './Home'
 //Allows us to utilize the adapter we import in earlier, allowing us to call and render a component.
 Enzyme.configure({ adapter: new Adapter() })
 
-// describe("When Home renders", () => {
-//     it("displays a image", () => {
-//       const home = shallow(<Home />)
-//     //   const image = home.find("img")
-//       console.log("HOME", home.debug());
-//       expect(home.find("img").prop("src")).toEqual(HomePagePhoto);
-//     })
-
 describe("When Home renders", () => {
     it("displays a heading", () => {
         const home = shallow(<Home />)

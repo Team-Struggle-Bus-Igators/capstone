@@ -20,3 +20,17 @@ body {
     background: black;
     color: white;
 }
+
+// not found page
+.error {
+    text-align: center;
+    font-size: xx-large;
+    padding-top: 250px;
+}
+
+.not_found {
+    text-align: center;
+    margin: auto;
+    display: flex;
+    background-color: #f72585;
+}

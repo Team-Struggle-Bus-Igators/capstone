@@ -12,31 +12,21 @@ import PostNew from './pages/PostNew'
 import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
+import AboutUs from './pages/AboutUs'
 
 
 class App extends Component {
   render() {
-    const {
-      logged_in,
-      current_user,
-      new_user_route,
-      sign_in_route,
-      sign_out_route
-    } = this.props
-    console.log("logged_in:", logged_in)
-    console.log("current_user:", current_user)
-    console.log("new_user_route:", new_user_route)
-    console.log("sign_in_route:", sign_in_route)
-    console.log("sign_out_route:", sign_out_route)
     return (
       <Router>
-        <Header />
+        <Header {...this.props} />
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/postindex" component={PostIndex} />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
           <Route path="/postnew" component={PostNew} />
           <Route path="/postedit" component={PostEdit} />
+          <Route path="/aboutus" component={AboutUs} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

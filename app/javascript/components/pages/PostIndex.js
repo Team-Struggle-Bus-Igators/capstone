@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
+import Logo from '../assets/Logo.svg'
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {
   CardGroup,
@@ -12,7 +13,7 @@ import {
   CardText,
   Button,
 } from 'reactstrap'
-import Logo from '../assets/Logo.svg'
+
 
 class PostIndex extends Component {
 

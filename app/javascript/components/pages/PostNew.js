@@ -25,10 +25,15 @@ export default class PostNew extends Component {
     this.setState({post: post})
   }
 
+  handleEnumChange = (e) => {
+    let targetName = e.target.name
+    let targetValue = e.target.selectedIndex
+    let { post } = this.state
+    post[targetName] = targetValue
+    this.setState({post: post})    
+  }
+
   render() {
-    console.log(this.state.post.user_id)
-    console.log(this.state.post)
-    console.log(this.props.user)
     return (
       <>
         <h1>Learnify your tech peers here!</h1>
@@ -38,7 +43,7 @@ export default class PostNew extends Component {
               Type*
             </Label>
             <Input 
-            onChange={this.handleChange}
+            onChange={this.handleEnumChange}
             name="type"
             type="select"
             >
@@ -58,7 +63,7 @@ export default class PostNew extends Component {
               Unit*
             </Label>
             <Input
-            onChange={this.handleChange}
+            onChange={this.handleEnumChange}
             name="Unit"
             type="select"
             >

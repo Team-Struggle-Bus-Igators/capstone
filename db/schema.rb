@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_12_225702) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_14_015425) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "posts", force: :cascade do |t|
-    t.integer "type"
+    t.integer "post_type"
     t.string "image"
     t.integer "unit"
     t.string "topic"

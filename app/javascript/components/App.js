@@ -17,6 +17,7 @@ import AboutUs from './pages/AboutUs'
 
 class App extends Component {
   render() {
+    const { current_user } = this.props
     return (
       <Router>
         <Header {...this.props} />
@@ -24,7 +25,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route path="/postindex" component={PostIndex} />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
-          <Route path="/postnew" component={PostNew} />
+          <Route path="/postnew" render={() => <PostNew user={current_user} /> }/>
           <Route path="/postedit" component={PostEdit} />
           <Route path="/aboutus" component={AboutUs} />
           <Route component={NotFound} />

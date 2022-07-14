@@ -17,12 +17,19 @@ describe("When index renders", () => {
         expect(indexHeading.text()).toEqual("Below you will find all of the help you need to get yourself off that struggle bus!")
       })
 
-    // it("renders an image", () => {
-    //     const home = shallow(<Home />);
-    //     console.log("HOME", home.debug());
-    //     expect(home.find("img").prop("alt")).toEqual('HomePagePhoto');
-    //  });
+    it("renders an dropdown-button", () => {
+        const index = shallow(<PostIndex />)
+        const indexDropDown = index.find("ButtonDropdown")
+        console.log("index dropdownButton", indexDropDown.debug());
+        expect(indexDropDown.length).toEqual(1)
+     });
      
+     it("renders an dropdown-button with a header item and 11 clickable dropdown items with 11 dividers", () => {
+        const index = shallow(<PostIndex />)
+        const indexDropDownItem = index.find("DropdownItem")
+        console.log("index DropdownItem", indexDropDownItem.debug());
+        expect(indexDropDownItem.length).toEqual(22)
+     });
     //  it("displays a paragraph", () => {
     //     const home = shallow(<Home />)
     //     const homeParagraph = home.find("p")

@@ -80,8 +80,18 @@ class PostIndex extends Component {
           </ButtonDropdown>
         </div>
         <div className='index__cards'>
-        <CardGroup>
-          <Card     
+          {}
+          
+          
+        </div>
+          
+      </div>
+    </>
+    )
+  }
+}
+
+{/* <Card     
           color="info"
           inverse
           >
@@ -115,85 +125,5 @@ class PostIndex extends Component {
                 </Button>
               </NavLink>
             </CardBody>
-          </Card>
-          <Card     
-          color="info"
-          inverse
-          >
-            <CardHeader
-            className="text-center"
-            >
-              Topic
-            </CardHeader>
-            <CardImg
-              alt="Default index image"
-              src={Logo}
-              top
-              width="100%"
-            />
-            <CardBody>
-              <CardTitle tag="h5">
-                Card Unit
-              </CardTitle>
-              <CardSubtitle
-                className="mb-2 text-muted"
-                tag="h6"
-              >
-                Type
-              </CardSubtitle>
-              <CardText>
-                This card has supporting text below as a natural lead-in to additional content.
-              </CardText>
-              <NavLink to="/postshow">
-                <Button>
-                View
-                </Button>
-              </NavLink>
-            </CardBody>
-          </Card>
-          <Card
-          color="info"
-          inverse
-          >
-            <CardHeader
-            className="text-center"
-            >
-              Topic
-            </CardHeader>
-            <CardImg
-              alt="Default index image"
-              src={Logo}
-              top
-              width="100%"
-            />
-            <CardBody>
-              <CardTitle tag="h5">
-                Card Unit
-              </CardTitle>
-              <CardSubtitle
-                className="mb-2 text-muted"
-                tag="h6"
-              >
-                Type
-              </CardSubtitle>
-              <CardText>
-                This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.
-              </CardText>
-              <NavLink to="/postshow">
-                <Button>
-                View
-                </Button>
-              </NavLink>
-            </CardBody>
-          </Card>
-        </CardGroup>
-        </div>
-          
-      </div>
-    </>
-    )
-  }
-}
-
-
+          </Card> */}
 export default PostIndex

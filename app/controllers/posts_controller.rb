@@ -1,6 +1,10 @@
 class PostsController < ApplicationController
-    def index
-    end
+    
+
+
+
+
+    
     def create
         post = Post.create(post_params)
         if post.valid? 

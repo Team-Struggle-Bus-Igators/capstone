@@ -8,7 +8,8 @@ Enzyme.configure({ adapter: new Adapter() })
 describe("when PostNew renders", () => {
     let postNew 
     beforeEach(() => {
-        postNew = shallow(<PostNew />)
+        let props = {current_user :{ id: 1 }}
+        postNew = shallow(<PostNew {...props}/>)
     })
     it("renders a heading", () => {
         const postHeading = postNew.find("h1")

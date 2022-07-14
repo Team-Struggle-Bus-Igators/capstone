@@ -5,15 +5,17 @@ import { Redirect } from 'react-router-dom'
 export default class PostNew extends Component {
   constructor(props) {
     super(props)
+    let { current_user } = this.props
     this.state = {
       submitted: false,
       post: {
-        user_id: this.props.user.id
+        user_id: current_user.id
       }
     }
   }
 
   handleSubmit = () => {
+    this.props.createPost(this.state.post)
     this.setState({submitted: true})
   }
 
@@ -40,11 +42,11 @@ export default class PostNew extends Component {
         <Form>
           <FormGroup>
             <Label>
-              Type*
+              Post Type*
             </Label>
             <Input 
             onChange={this.handleEnumChange}
-            name="type"
+            name="post_type"
             type="select"
             >
               <option>
@@ -64,7 +66,7 @@ export default class PostNew extends Component {
             </Label>
             <Input
             onChange={this.handleEnumChange}
-            name="Unit"
+            name="unit"
             type="select"
             >
               <option>
@@ -121,8 +123,18 @@ export default class PostNew extends Component {
             </Label>
             <Input
             onChange={this.handleChange}
-            name="name"
+            name="author"
             type="text"
+            />
+          </FormGroup>
+          <FormGroup>
+            <Label>
+              Date*
+            </Label>
+            <Input
+            onChange={this.handleChange}
+            name="date"
+            type="date"
             />
           </FormGroup>
           <FormGroup>

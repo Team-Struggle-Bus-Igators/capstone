@@ -16,7 +16,27 @@ import AboutUs from './pages/AboutUs'
 
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      listOfPosts: []
+    }
+  }
+
+  createPost = (newPost) => {
+    fetch("/posts", {
+      body: JSON.stringify(newPost),
+      headers: { "Content-Type": "application/json" },
+      method: "POST"
+    })
+    .then(response => response.json())
+    // .then(payload => this.readPost())
+    // The code above is commented out temporarily until we add our index
+    .catch(err => console.log("Post create errors", err))
+  }
+
   render() {
+    const { current_user } = this.props
     return (
       <Router>
         <Header {...this.props} />
@@ -24,7 +44,7 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route path="/postindex" component={PostIndex} />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
-          <Route path="/postnew" component={PostNew} />
+          <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} /> }/>
           <Route path="/postedit" component={PostEdit} />
           <Route path="/aboutus" component={AboutUs} />
           <Route component={NotFound} />

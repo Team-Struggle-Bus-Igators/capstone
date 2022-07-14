@@ -16,10 +16,9 @@ import {
 
 
 class PostIndex extends Component {
-
   constructor(props) {
-    super(props);
-
+    super(props)
+    
     this.toggle = this.toggle.bind(this);
     this.state = {
       dropdownOpen: false,
@@ -44,49 +43,71 @@ class PostIndex extends Component {
   }
 
   render() {
+    const { posts } = this.props
+    console.log(posts)
     return (
-    <>
-      <div className='unprotected__index__component'>
-        <h2>Below you will find all of the help you need to get yourself off that struggle bus!</h2>
-        <div className='DropdownButton'>
-          <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-          <DropdownToggle caret>
-            Button Dropdown
-          </DropdownToggle>
-          <DropdownMenu>
-            <DropdownItem header>Select Unit</DropdownItem>
-            <DropdownItem onClick={() => this.setState({unit1: true})}>Unit 1: JS Introduction</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit2: true})}>Unit 2: JS Foundations</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit3: true})}>Unit 3: React</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit4: true})}>Unit 4: Ruby</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit5: true})}>Unit 5:Intro to Postgres and Ruby on Rails Models</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit6: true})}>Unit 6: Ruby on Rails</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit7: true})}>Unit 7: Professional Development Week</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit8: true})}>Unit 8: Cat Tinder! Combining React and Rails</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit9: true})}>Unit 9: React in Rails and Authentication</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit10: true})}>Unit 10: Capstone Project, MVP</DropdownItem>
-            <DropdownItem divider />
-            <DropdownItem onClick={() => this.setState({unit11: true})}>Unit 11: Capstone Project, Icebox</DropdownItem>
-          </DropdownMenu>
-          </ButtonDropdown>
+      <>
+        <div className='unprotected__index__component'>
+          <h2>Below you will find all of the help you need to get yourself off that struggle bus!</h2>
+          <div className='DropdownButton'>
+            <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
+            <DropdownToggle caret>
+              Button Dropdown
+            </DropdownToggle>
+            <DropdownMenu>
+              <DropdownItem header>Select Unit</DropdownItem>
+              <DropdownItem onClick={() => this.setState({unit1: true})}>Unit 1: JS Introduction</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit2: true})}>Unit 2: JS Foundations</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit3: true})}>Unit 3: React</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit4: true})}>Unit 4: Ruby</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit5: true})}>Unit 5:Intro to Postgres and Ruby on Rails Models</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit6: true})}>Unit 6: Ruby on Rails</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit7: true})}>Unit 7: Professional Development Week</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit8: true})}>Unit 8: Cat Tinder! Combining React and Rails</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit9: true})}>Unit 9: React in Rails and Authentication</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit10: true})}>Unit 10: Capstone Project, MVP</DropdownItem>
+              <DropdownItem divider />
+              <DropdownItem onClick={() => this.setState({unit11: true})}>Unit 11: Capstone Project, Icebox</DropdownItem>
+            </DropdownMenu>
+            </ButtonDropdown>
+          </div>
+          {!this.state.unit1 && !this.state.unit2 && !this.state.unit3 && !this.state.unit4 && !this.state.unit5 && !this.state.unit6 && !this.state.unit7 && !this.state.unit8 && !this.state.unit9 && !this.state.unit10 && !this.state.unit11 && 
+          <>
+            <h2>These are the most recent cards</h2>
+            <div id="grid-index">
+              {posts && 
+                  posts.map((post, index) => {
+                  return <Card id="index-card" key={index}>
+                      <CardBody id="card-body-index">
+                      <CardTitle>{post.topic}</CardTitle>
+                      <CardSubtitle>{post.unit}</CardSubtitle>
+                      <CardSubtitle>{post.post_type}</CardSubtitle>
+                      <CardImg id="card-image" src={post.image} alt="Card image cap" />
+                      <NavLink id="info-button" to={`/postshow/${post.id}`}>
+                          More Info
+                      </NavLink>
+                      </CardBody>
+                  </Card>
+                  })
+              }
+            </div>
+          </>
+          }
+          <div className='index__cards'>
+            
+            
+          </div>
         </div>
-        <div className='index__cards'>
-          {}
-          
-          
-        </div>
-          
-      </div>
-    </>
+      </>
     )
   }
 }

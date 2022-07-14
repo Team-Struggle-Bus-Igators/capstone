@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
     def index
         posts = Post.all
         render json: posts
@@ -11,6 +12,14 @@ class PostsController < ApplicationController
         else
             render json: post.errors, status: 422
         end
+    end
+
+    def update
+
+    end
+    
+    def destroy
+
     end
 
     private

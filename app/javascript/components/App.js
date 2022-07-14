@@ -13,13 +13,13 @@ import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
-
+import mockData from './components/mockdata'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      listOfPosts: []
+      posts: [mockData]
     }
   }
 
@@ -36,13 +36,12 @@ class App extends Component {
   }
 
   render() {
-    const { current_user } = this.props
     return (
       <Router>
         <Header {...this.props} />
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path="/postindex" component={PostIndex} />
+          <Route path="/postindex" render={() => <PostIndex posts={this.state.posts}/> } />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
           <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} /> }/>
           <Route path="/postedit" component={PostEdit} />

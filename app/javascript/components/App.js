@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter as  Router,
+  BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom'
@@ -13,8 +13,7 @@ import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
-import mockData from './components/mockdata'
-
+import PostShow from './pages/PostShow'
 class App extends Component {
   constructor(props) {
     super(props)
@@ -29,9 +28,9 @@ class App extends Component {
 
   readPost = () => {
     fetch("/posts")
-    .then(response => response.json())
-    .then(postArr => this.setState({posts: postArr}))
-    .catch(err => console.log("Post read errors", err))
+      .then(response => response.json())
+      .then(postArr => this.setState({ posts: postArr }))
+      .catch(err => console.log("Post read errors", err))
   }
 
   createPost = (newPost) => {
@@ -40,9 +39,9 @@ class App extends Component {
       headers: { "Content-Type": "application/json" },
       method: "POST"
     })
-    .then(response => response.json())
-    .then(payload => this.readPost())
-    .catch(err => console.log("Post create errors", err))
+      .then(response => response.json())
+      .then(payload => this.readPost())
+      .catch(err => console.log("Post create errors", err))
   }
 
   render() {
@@ -50,12 +49,13 @@ class App extends Component {
       <Router>
         <Header {...this.props} />
         <Switch>
-          <Route exact path="/" component={Home}/>
-          <Route path="/postindex" render={() => <PostIndex posts={this.state.posts}/> } />
+          <Route exact path="/" component={Home} />
+          <Route path="/postindex" render={() => <PostIndex posts={this.state.posts} />} />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
-          <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} /> }/>
+          <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} />} />
           <Route path="/postedit" component={PostEdit} />
           <Route path="/aboutus" component={AboutUs} />
+          <Route path="/postshow" component={PostShow} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

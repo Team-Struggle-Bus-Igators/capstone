@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {
-  CardGroup,
   Card,
-  CardHeader,
   CardImg,
   CardBody,
   CardTitle,
@@ -37,10 +35,7 @@ class PostIndex extends Component {
 
   render() {
     const { posts } = this.props
-    console.log("posts", posts)
     const filteredPosts = posts.filter(post => post.unit === this.state.openedUnit)
-    console.log("openedunit", this.state.openedUnit)
-    console.log("filtered", filteredPosts)
     return (
       <>
         <div className='unprotected__index__component'>

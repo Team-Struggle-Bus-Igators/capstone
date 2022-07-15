@@ -13,7 +13,6 @@ import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
-import mockData from './components/mockdata'
 
 class App extends Component {
   constructor(props) {
@@ -45,6 +44,18 @@ class App extends Component {
     .catch(err => console.log("Post create errors", err))
   }
 
+  deletePost = (id) => {
+    fetch(`/posts/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.readPost())
+    .catch(errors => console.log("delete errors:", errors))
+  }
+
   render() {
     return (
       <Router>
@@ -53,6 +64,11 @@ class App extends Component {
           <Route exact path="/" component={Home}/>
           <Route path="/postindex" render={() => <PostIndex posts={this.state.posts}/> } />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
+          <Route path="/postshow/:id" render={(props) => {
+            let id = props.match.params.id
+            let post = this.state.posts.find(post => post.id === +id)
+            return <PostShow post={post} deletePost={this.deletePost} />
+            }} />
           <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} /> }/>
           <Route path="/postedit" component={PostEdit} />
           <Route path="/aboutus" component={AboutUs} />

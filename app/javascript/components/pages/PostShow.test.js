@@ -10,11 +10,11 @@ describe("when PostShow is rendered", () => {
         renderedPostShow = shallow(<PostShow />)
     })
     it("will render a card", () => {
-        const postShowCard = postShowRender.find("Card")
+        const postShowCard = renderedPostShow.find("Card")
         expect(postShowCard.length).toEqual(1)
     })
     it("renders a button that takes you to home page", () => {
-        const showButton = showButtonRender.find("button")
+        const showButton = renderedPostShow.find("Button")
         expect(showButton.length).toEqual(1)
 
     })

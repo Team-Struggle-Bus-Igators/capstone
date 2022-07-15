@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+
     def index
         posts = Post.all
         render json: posts
@@ -11,6 +12,21 @@ class PostsController < ApplicationController
         else
             render json: post.errors, status: 422
         end
+    end
+
+    def update
+        post = Post.find(params[:id])
+        post.update(post_params)
+        if post.valid? 
+            render json: post
+        else
+            render json: post.errors, status: 422
+        end
+    end
+    
+    def destroy
+        post = Post.find(params[:id])
+        post.destroy
     end
 
     private

@@ -13,14 +13,25 @@ import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
-
+import mockData from './components/mockdata'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      listOfPosts: []
+      posts: []
     }
+  }
+
+  componentDidMount = () => {
+    this.readPost()
+  }
+
+  readPost = () => {
+    fetch("/posts")
+    .then(response => response.json())
+    .then(postArr => this.setState({posts: postArr}))
+    .catch(err => console.log("Post read errors", err))
   }
 
   createPost = (newPost) => {
@@ -30,19 +41,17 @@ class App extends Component {
       method: "POST"
     })
     .then(response => response.json())
-    // .then(payload => this.readPost())
-    // The code above is commented out temporarily until we add our index
+    .then(payload => this.readPost())
     .catch(err => console.log("Post create errors", err))
   }
 
   render() {
-    const { current_user } = this.props
     return (
       <Router>
         <Header {...this.props} />
         <Switch>
           <Route exact path="/" component={Home}/>
-          <Route path="/postindex" component={PostIndex} />
+          <Route path="/postindex" render={() => <PostIndex posts={this.state.posts}/> } />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
           <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} /> }/>
           <Route path="/postedit" component={PostEdit} />

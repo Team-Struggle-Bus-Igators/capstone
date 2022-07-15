@@ -19,8 +19,19 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      posts: [mockData]
+      posts: []
     }
+  }
+
+  componentDidMount = () => {
+    this.readPost()
+  }
+
+  readPost = () => {
+    fetch("/posts")
+    .then(response => response.json())
+    .then(postArr => this.setState({posts: postArr}))
+    .catch(err => console.log("Post read errors", err))
   }
 
   createPost = (newPost) => {
@@ -30,8 +41,7 @@ class App extends Component {
       method: "POST"
     })
     .then(response => response.json())
-    // .then(payload => this.readPost())
-    // The code above is commented out temporarily until we add our index
+    .then(payload => this.readPost())
     .catch(err => console.log("Post create errors", err))
   }
 

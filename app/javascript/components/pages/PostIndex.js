@@ -22,17 +22,7 @@ class PostIndex extends Component {
     this.toggle = this.toggle.bind(this);
     this.state = {
       dropdownOpen: false,
-      unit1: false,
-      unit2: false,
-      unit3: false,
-      unit4: false,
-      unit5: false,
-      unit6: false,
-      unit7: false,
-      unit8: false,
-      unit9: false,
-      unit10: false,
-      unit11: false,
+      openedUnit: null,
     };
   }
 
@@ -42,9 +32,16 @@ class PostIndex extends Component {
     });
   }
 
+  handleClickUnit = (key) => {
+    this.setState({openedUnit: key})
+  }
+
   render() {
     const { posts } = this.props
-    console.log(posts)
+    console.log("posts", posts)
+    const filteredPosts = posts.filter(post => post.unit === this.state.openedUnit)
+    console.log("openedunit", this.state.openedUnit)
+    console.log("filtered", filteredPosts)
     return (
       <>
         <div className='unprotected__index__component'>
@@ -52,99 +49,80 @@ class PostIndex extends Component {
           <div className='DropdownButton'>
             <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle caret>
-              Button Dropdown
+              Select Unit
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem header>Select Unit</DropdownItem>
-              <DropdownItem onClick={() => this.setState({unit1: true})}>Unit 1: JS Introduction</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 1: JS Introduction")}>Unit 1: JS Introduction</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit2: true})}>Unit 2: JS Foundations</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 2: JS Foundations")}>Unit 2: JS Foundations</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit3: true})}>Unit 3: React</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 3: React")}>Unit 3: React</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit4: true})}>Unit 4: Ruby</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 4: Ruby")}>Unit 4: Ruby</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit5: true})}>Unit 5:Intro to Postgres and Ruby on Rails Models</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 5: Intro to Postgres and Ruby on Rails Models")}>Unit 5:Intro to Postgres and Ruby on Rails Models</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit6: true})}>Unit 6: Ruby on Rails</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 6: Ruby on Rails")}>Unit 6: Ruby on Rails</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit7: true})}>Unit 7: Professional Development Week</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 7: Professional Development Week")}>Unit 7: Professional Development Week</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit8: true})}>Unit 8: Cat Tinder! Combining React and Rails</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 8: Cat Tinder! Combining React and Rails")}>Unit 8: Cat Tinder! Combining React and Rails</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit9: true})}>Unit 9: React in Rails and Authentication</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 9: React in Rails and Authentication")}>Unit 9: React in Rails and Authentication</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit10: true})}>Unit 10: Capstone Project, MVP</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 10: Capstone Project, MVP")}>Unit 10: Capstone Project, MVP</DropdownItem>
               <DropdownItem divider />
-              <DropdownItem onClick={() => this.setState({unit11: true})}>Unit 11: Capstone Project, Icebox</DropdownItem>
+              <DropdownItem onClick={() => this.handleClickUnit("Unit 11: Capstone Project, Icebox")}>Unit 11: Capstone Project, Icebox</DropdownItem>
             </DropdownMenu>
             </ButtonDropdown>
           </div>
-          {!this.state.unit1 && !this.state.unit2 && !this.state.unit3 && !this.state.unit4 && !this.state.unit5 && !this.state.unit6 && !this.state.unit7 && !this.state.unit8 && !this.state.unit9 && !this.state.unit10 && !this.state.unit11 && 
-          <>
-            <h2>These are the most recent cards</h2>
-            <div id="grid-index">
-              {posts && 
-                  posts.map((post, index) => {
-                  return <Card id="index-card" key={index}>
-                      <CardBody id="card-body-index">
-                      <CardTitle>{post.topic}</CardTitle>
-                      <CardSubtitle>{post.unit}</CardSubtitle>
-                      <CardSubtitle>{post.post_type}</CardSubtitle>
-                      <CardImg id="card-image" src={post.image} alt="Card image cap" />
-                      <NavLink id="info-button" to={`/postshow/${post.id}`}>
-                          More Info
-                      </NavLink>
-                      </CardBody>
-                  </Card>
-                  })
-              }
-            </div>
-          </>
+          {!this.state.openedUnit &&
+            <>
+              <h2>These are the most recent cards</h2>
+              <div id="grid-index">
+                {posts && 
+                    posts.reverse().map((post, index) => {
+                    return <Card id="index-card" key={index}>
+                        <CardBody id="card-body-index">
+                        <CardTitle>{post.topic}</CardTitle>
+                        <CardSubtitle>{post.unit}</CardSubtitle>
+                        <CardSubtitle>{post.post_type}</CardSubtitle>
+                        <CardSubtitle>{post.date}</CardSubtitle>
+                        <CardImg id="card-image" src={post.image} alt="Card image cap" />
+                        <NavLink id="info-button" to={`/postshow/${post.id}`}>
+                            More Info
+                        </NavLink>
+                        </CardBody>
+                      </Card>
+                    })
+                }
+              </div>
+            </>
           }
-          <div className='index__cards'>
-            
-            
-          </div>
+          {this.state.openedUnit &&
+          <>
+              <h2>These are the posts for {this.state.openedUnit}</h2>
+              {filteredPosts.reverse().map((post, index) => {
+              return <Card id="index-card" key={index}>
+                  <CardBody id="card-body-index">
+                  <CardTitle>{post.topic}</CardTitle>
+                  <CardSubtitle>{post.unit}</CardSubtitle>
+                  <CardSubtitle>{post.post_type}</CardSubtitle>
+                  <CardSubtitle>{post.date}</CardSubtitle>
+                  <CardImg id="card-image" src={post.image} alt="Card image cap" />
+                  <NavLink id="info-button" to={`/postshow/${post.id}`}>
+                      More Info
+                  </NavLink>
+                  </CardBody>
+                </Card>
+              })}
+          </>
+            }
         </div>
       </>
     )
   }
 }
 
-{/* <Card     
-          color="info"
-          inverse
-          >
-            <CardHeader 
-            className="text-center"
-            >
-              Topic
-            </CardHeader>
-            <CardImg
-              alt="Default index image"
-              src={Logo}
-              top
-              width="100%"
-            />
-            <CardBody>
-              <CardTitle tag="h5">
-                Card Unit
-              </CardTitle>
-              <CardSubtitle
-                className="mb-2 text-muted"
-                tag="h6"
-              >
-                Type
-              </CardSubtitle>
-              <CardText>
-                This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-              </CardText>
-              <NavLink to="/postshow">
-                <Button>
-                View
-                </Button>
-              </NavLink>
-            </CardBody>
-          </Card> */}
 export default PostIndex

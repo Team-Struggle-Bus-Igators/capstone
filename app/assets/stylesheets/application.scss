@@ -21,6 +21,77 @@ body {
     color: white;
 }
 
+$pink-color: #f72585;
+$blue-color: #4cc9f0;
+$purple-color: #990BF5;
+
+
+.app-name {
+    color: $blue-color;
+    font-size: xx-large;
+}
+
+
+#post-link {
+    margin: 1em;
+    width: 100%;
+}
+
+.nav-links {
+    background-color: black;
+    color: $blue-color;
+    width: 10em;
+}
+
+.link-container {
+    display: flex;
+    width: 50%;
+}
+
+.nav-link {
+    color: $pink-color;
+    background-color: black;
+    margin: 1em;
+}
+
+#nav-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-fluid {
+    width: 100%;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0%;
+}
+
+.navbar-nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+// home
+
+.home-component {
+    text-align: center;
+    color: $pink-color;
+}
+
+.call-to-action {
+    color: $purple-color;
+    background-color: black;
+}
+
+.home-body {
+    background-color: $blue-color;
+}
+
+
+
 // not found page
 .error {
     text-align: center;
@@ -28,9 +99,55 @@ body {
     padding-top: 250px;
 }
 
-.not_found {
+
+.button-home {
     text-align: center;
     margin: auto;
     display: flex;
-    background-color: #f72585;
+    background-color: $pink-color;
+}
+
+// footer
+.footer {
+    background-color: black;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0px;
+    width: 100%;
+    height: 20px;
+    position: fixed;
+}
+
+
+.about-us {
+    color: $pink-color;
+}
+
+.back-home {
+    color: $blue-color;
+}
+
+.footer-name {
+    color: $purple-color;
+}
+
+.index-cards {
+    color: white;
+    background-color: $blue-color;
+    margin-left: auto;
+    margin-right: auto;
+    // position: absolute;
+    // width: 1124px;
+    // height: 600px;
+    // left: 156px;
+
+
+}
+
+.card-title-sub {
+    color: white;
+    font-size: larger;
+    justify-content: space-between;
+
 }

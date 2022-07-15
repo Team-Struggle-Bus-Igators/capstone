@@ -5,21 +5,17 @@ export default class Footer extends Component {
   render() {
     return (
       <>
-        <ul>
-          <li>
-            <NavLink to="/aboutus">
-              About us
-            </NavLink>
-          </li>
-          <li>
+        <div className='footer'>
+          <NavLink className='about-us' to="/aboutus">
+            About us
+          </NavLink>
+          <div className='footer-name'>
             <p>© Learnify 2022</p>
-          </li>
-          <li>
-            <NavLink to="/">
-              Back Home
-            </NavLink>
-          </li>
-        </ul>
+          </div>
+          <NavLink className='back-home' to="/">
+            Back Home
+          </NavLink>
+        </div>
       </>
     )
   }

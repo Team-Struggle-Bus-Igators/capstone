@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {
-  BrowserRouter as  Router,
+  BrowserRouter as Router,
   Route,
   Switch
 } from 'react-router-dom'
@@ -13,6 +13,7 @@ import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
+import PostShow from './pages/PostShow'
 
 
 class App extends Component {
@@ -21,12 +22,13 @@ class App extends Component {
       <Router>
         <Header {...this.props} />
         <Switch>
-          <Route exact path="/" component={Home}/>
+          <Route exact path="/" component={Home} />
           <Route path="/postindex" component={PostIndex} />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
           <Route path="/postnew" component={PostNew} />
           <Route path="/postedit" component={PostEdit} />
           <Route path="/aboutus" component={AboutUs} />
+          <Route path="/postshow" component={PostShow} />
           <Route component={NotFound} />
         </Switch>
         <Footer />

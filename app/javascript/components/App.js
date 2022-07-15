@@ -13,18 +13,21 @@ import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
+import ScrollToTop from './components/ScrollToTop'
 
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      posts: []
+      posts: [],
+      location: null
     }
   }
 
   componentDidMount = () => {
     this.readPost()
   }
+
 
   readPost = () => {
     fetch("/posts")
@@ -60,6 +63,7 @@ class App extends Component {
     return (
       <Router>
         <Header {...this.props} />
+        <ScrollToTop>
         <Switch>
           <Route exact path="/" component={Home}/>
           <Route path="/postindex" render={() => <PostIndex posts={this.state.posts}/> } />
@@ -74,6 +78,7 @@ class App extends Component {
           <Route path="/aboutus" component={AboutUs} />
           <Route component={NotFound} />
         </Switch>
+        </ScrollToTop>
         <Footer />
       </Router>
     )

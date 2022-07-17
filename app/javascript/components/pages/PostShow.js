@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { NavLink, Redirect, Link } from 'react-router-dom'
 import {
   Card,
   CardImg,
@@ -8,11 +9,28 @@ import {
   Button,
   CardText
 } from 'reactstrap'
-import { NavLink } from 'react-router-dom'
 
 class PostShow extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      deleted: false,
+    }
+  }
+  
+  handleDelete = () => {
+    this.setState({deleted: true})
+    alert("Post successfully deleted")
+  }
+  
   render() {
-    const { post } = this.props
+    const { post, current_user, logged_in } = this.props
+    const postUserId = post.user_id
+    let usersPost 
+    logged_in ? usersPost = current_user.id === postUserId : null
+    if(this.state.deleted) {
+      return(<Redirect to="/postindex" />)
+    }
     return (
       <>
         <Card className='index-cards' style={{ width: '60rem', height: '30rem' }}>
@@ -27,7 +45,12 @@ class PostShow extends Component {
             </NavLink>
           </CardBody>
         </Card>
-
+        { logged_in && usersPost &&
+          <div id="show-user-options">
+            <Link to={`/postedit/${post.id}`} className="btn btn-warning" color="warning">Edit</Link>
+            <Button onClick={this.handleDelete} color="danger">Delete</Button>
+          </div>
+        }
       </>
     )
   }

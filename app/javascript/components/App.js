@@ -53,6 +53,11 @@ class App extends Component {
           <Route path="/postindex" render={() => <PostIndex posts={this.state.posts} />} />
           <Route path="/postprotectedindex" component={PostProtectedIndex} />
           <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} />} />
+          <Route path="/postshow/:id" render={(props) => {
+            let id = props.match.params.id
+            let post = this.state.posts.find(post => post.id === +id)
+            return <PostShow post={post} {...this.props}/>
+            }} />
           <Route path="/postedit" component={PostEdit} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/postshow" component={PostShow} />

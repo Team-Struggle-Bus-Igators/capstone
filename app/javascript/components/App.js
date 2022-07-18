@@ -81,7 +81,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/postindex" render={() => <PostIndex posts={this.state.posts} />} />
-          <Route path="/postprotectedindex" component={PostProtectedIndex} />
+          <Route path="/postprotectedindex" render={() => <PostProtectedIndex {...this.props} posts={this.state.posts}/>} />
           <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} />} />
           <Route path="/postshow/:id" render={(props) => {
             let id = props.match.params.id

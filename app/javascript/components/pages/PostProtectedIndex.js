@@ -16,20 +16,21 @@ class PostProtectedIndex extends Component {
       <>
         <h1>These are your current posts</h1>
           {usersPosts && usersPosts.map((post, index) => {
-            return <Card id="index-card" key={index}>
+            return (
+              <Card id="index-card" key={index}>
                 <CardBody id="card-body-index">
-                <CardTitle>{post.topic}</CardTitle>
-                <CardSubtitle>{post.unit}</CardSubtitle>
-                <CardSubtitle>{post.post_type}</CardSubtitle>
-                <CardSubtitle>{post.date}</CardSubtitle>
-                <CardImg id="card-image" src={post.image} alt="Card image cap" />
-                <NavLink id="info-button" to={`/postshow/${post.id}`}>
-                    More Info
-                </NavLink>
+                  <CardTitle>{post.topic}</CardTitle>
+                    <CardSubtitle>{post.unit}</CardSubtitle>
+                    <CardSubtitle>{post.post_type}</CardSubtitle>
+                    <CardSubtitle>{post.date}</CardSubtitle>
+                  <CardImg id="card-image" src={post.image} alt="Card image cap" />
+                  <NavLink id="info-button" to={`/postshow/${post.id}`}>
+                      More Info
+                  </NavLink>
                 </CardBody>
               </Card>
-            })
-          }
+            )
+          })}
       </>
     )
   }

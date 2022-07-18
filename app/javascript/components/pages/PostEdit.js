@@ -8,7 +8,6 @@ export default class PostEdit extends Component {
     this.state = {
       submitted: false,
       updatedPost: {
-          id: this.props.post.id,
           post_type: "",
           image: "",
           unit: "",
@@ -29,7 +28,7 @@ export default class PostEdit extends Component {
   }
 
   handleSubmit = () => {
-    this.props.editPost(this.state.updatedPost)
+    this.props.editPost(this.state.updatedPost, this.props.post.id)
     this.setState({submitted: true})
   }
 
@@ -42,6 +41,7 @@ export default class PostEdit extends Component {
   }
 
   render() {
+    const { post } = this.props
     return (
       <>
         <h1>Update your post here!</h1>
@@ -57,7 +57,6 @@ export default class PostEdit extends Component {
             value={this.state.updatedPost.post_type}
             disabled
             />
-
           </FormGroup>
           <FormGroup>
             <Label>
@@ -152,7 +151,7 @@ export default class PostEdit extends Component {
             Update
           </Button>
           {this.state.submitted ? alert("Your post has been successfully updated") : null}
-          {this.state.submitted ? <Redirect to={`posts/${}`} /> : null}
+          {this.state.submitted ? <Redirect to={`/postshow/${post.id}`} /> : null}
         </Form>
       </>
     )

@@ -35,5 +35,4 @@ class PostProtectedIndex extends Component {
   }
 }
 
-
 export default PostProtectedIndex

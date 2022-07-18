@@ -15,17 +15,33 @@ class PostShow extends Component {
     super(props)
     this.state = {
       deleted: false,
+      post: null
     }
+  }
+
+  componentDidMount = () => {
+    this.readPost()
+  }
+
+  readPost = () => {
+    fetch(`/posts/${this.props.id}`)
+    .then(response => response.json())
+    .then(postObj => this.setState({ post: postObj }))
+    .catch(err => console.log("Post read errors", err))
   }
   
   handleDelete = () => {
-    this.props.deletePost(this.props.post.id)
+    this.props.deletePost(this.props.id)
     this.setState({deleted: true})
     alert("Post successfully deleted")
   }
   
   render() {
-    const { post, current_user, logged_in } = this.props
+    if(this.state.post === null) {
+      return null
+    }
+    const { current_user, logged_in } = this.props
+    const { post } = this.state
     const postUserId = post.user_id
     let usersPost 
     logged_in ? usersPost = current_user.id === postUserId : null

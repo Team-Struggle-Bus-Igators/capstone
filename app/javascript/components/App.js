@@ -29,7 +29,6 @@ class App extends Component {
     this.readPost()
   }
 
-
   readPost = () => {
     fetch("/posts")
       .then(response => response.json())
@@ -85,8 +84,7 @@ class App extends Component {
           <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} />} />
           <Route path="/postshow/:id" render={(props) => {
             let id = props.match.params.id
-            let post = this.state.posts.find(post => post.id === +id)
-            return <PostShow post={post} {...this.props} deletePost={this.deletePost} />
+            return <PostShow id={id} {...this.props} deletePost={this.deletePost} />
             }} />
           <Route path="/postedit/:id" render={(props) => {
               let id = props.match.params.id

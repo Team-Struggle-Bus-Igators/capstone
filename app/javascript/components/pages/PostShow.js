@@ -19,6 +19,7 @@ class PostShow extends Component {
   }
   
   handleDelete = () => {
+    this.props.deletePost(this.props.post.id)
     this.setState({deleted: true})
     alert("Post successfully deleted")
   }

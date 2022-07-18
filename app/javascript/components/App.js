@@ -48,6 +48,19 @@ class App extends Component {
       .catch(err => console.log("Post create errors", err))
   }
 
+  editPost = (post, id) => {
+    fetch(`/posts/${id}`, {
+    body: JSON.stringify(post),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    method: "PATCH"
+    })
+    .then(response => response.json())
+    .then(payload => this.readPost())
+    .catch(err => console.log("Post update errors:", err))
+  }
+
   deletePost = (id) => {
     fetch(`/posts/${id}`, {
       headers: {
@@ -75,7 +88,11 @@ class App extends Component {
             let post = this.state.posts.find(post => post.id === +id)
             return <PostShow post={post} {...this.props} deletePost={this.deletePost} />
             }} />
-          <Route path="/postedit" component={PostEdit} />
+          <Route path="/postedit/:id" render={(props) => {
+              let id = props.match.params.id
+              let post = this.state.posts.find(post => post.id === +id)
+              return <PostEdit post={post} editPost={this.editPost} />
+            }} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/postshow" component={PostShow} />
           <Route component={NotFound} />

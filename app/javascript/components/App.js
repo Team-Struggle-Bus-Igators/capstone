@@ -88,8 +88,7 @@ class App extends Component {
             }} />
           <Route path="/postedit/:id" render={(props) => {
               let id = props.match.params.id
-              let post = this.state.posts.find(post => post.id === +id)
-              return <PostEdit post={post} editPost={this.editPost} />
+              return <PostEdit id={id} editPost={this.editPost} />
             }} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/postshow" component={PostShow} />

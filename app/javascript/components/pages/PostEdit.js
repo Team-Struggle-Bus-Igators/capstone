@@ -23,8 +23,14 @@ export default class PostEdit extends Component {
   }
 
   componentDidMount = () => {
-    this.setState({updatedPost: this.props.post})
-    
+    this.readPost()
+  }
+
+  readPost = () => {
+    fetch(`/posts/${this.props.id}`)
+    .then(response => response.json())
+    .then(postObj => this.setState({ updatedPost: postObj }))
+    .catch(err => console.log("Post read errors", err))
   }
 
   handleSubmit = () => {

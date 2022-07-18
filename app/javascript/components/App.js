@@ -13,18 +13,22 @@ import PostProtectedIndex from './pages/PostProtectedIndex'
 import PostIndex from './pages/PostIndex'
 import Footer from './components/Footer'
 import AboutUs from './pages/AboutUs'
+import ScrollToTop from './components/ScrollToTop'
 import PostShow from './pages/PostShow'
+
 class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      posts: []
+      posts: [],
+      location: null
     }
   }
 
   componentDidMount = () => {
     this.readPost()
   }
+
 
   readPost = () => {
     fetch("/posts")
@@ -44,10 +48,23 @@ class App extends Component {
       .catch(err => console.log("Post create errors", err))
   }
 
+  deletePost = (id) => {
+    fetch(`/posts/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.readPost())
+    .catch(errors => console.log("delete errors:", errors))
+  }
+
   render() {
     return (
       <Router>
         <Header {...this.props} />
+        <ScrollToTop>
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/postindex" render={() => <PostIndex posts={this.state.posts} />} />
@@ -56,13 +73,14 @@ class App extends Component {
           <Route path="/postshow/:id" render={(props) => {
             let id = props.match.params.id
             let post = this.state.posts.find(post => post.id === +id)
-            return <PostShow post={post} {...this.props}/>
+            return <PostShow post={post} {...this.props} deletePost={this.deletePost} />
             }} />
           <Route path="/postedit" component={PostEdit} />
           <Route path="/aboutus" component={AboutUs} />
           <Route path="/postshow" component={PostShow} />
           <Route component={NotFound} />
         </Switch>
+        </ScrollToTop>
         <Footer />
       </Router>
     )

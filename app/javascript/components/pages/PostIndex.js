@@ -2,9 +2,7 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import { ButtonDropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import {
-  CardGroup,
   Card,
-  CardHeader,
   CardImg,
   CardBody,
   CardTitle,
@@ -41,7 +39,7 @@ class PostIndex extends Component {
     return (
       <>
         <div className='unprotected__index__component'>
-          <h2>Below you will find all of the help you need to get yourself off that struggle bus!</h2>
+          <h1>Below you will find all of the help you need to get yourself off that struggle bus!</h1>
           <div className='DropdownButton'>
             <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle caret>
@@ -78,7 +76,7 @@ class PostIndex extends Component {
               <h2>These are the most recent cards</h2>
               <div id="grid-index">
                 {posts && 
-                    posts.reverse().map((post, index) => {
+                    posts.map((post, index) => {
                     return <Card id="index-card" key={index}>
                         <CardBody id="card-body-index">
                         <CardTitle>{post.topic}</CardTitle>
@@ -99,7 +97,7 @@ class PostIndex extends Component {
           {this.state.openedUnit &&
           <>
               <h2>These are the posts for {this.state.openedUnit}</h2>
-              {filteredPosts.reverse().map((post, index) => {
+              {filteredPosts.map((post, index) => {
               return <Card id="index-card" key={index}>
                   <CardBody id="card-body-index">
                   <CardTitle>{post.topic}</CardTitle>

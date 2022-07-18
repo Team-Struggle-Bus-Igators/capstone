@@ -13,7 +13,7 @@ describe("When index renders", () => {
    let user = { id: 1}
    beforeEach(() => {
       let props = {
-         post: [
+         posts: [
             {
                id: 1,
                post_type: "Projects",
@@ -33,7 +33,7 @@ describe("When index renders", () => {
    })
 
    it("displays a heading", () => {
-      const indexHeading = index.find("h2")
+      const indexHeading = index.find("h1")
       console.log("index heading", indexHeading.debug());
       expect(indexHeading.text()).toEqual("Below you will find all of the help you need to get yourself off that struggle bus!")
    })
@@ -51,8 +51,7 @@ describe("When index renders", () => {
    });
    
    it("will render a card", () => {
-      
       const indexCard = index.find("Card")
-      expect(indexCard.length).toEqual(4)
+      expect(indexCard.length).toEqual(1)
    })
  });

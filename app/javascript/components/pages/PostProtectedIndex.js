@@ -1,4 +1,12 @@
 import React, { Component } from 'react'
+import { NavLink } from 'react-router-dom'
+import {
+  Card,
+  CardImg,
+  CardBody,
+  CardTitle,
+  CardSubtitle,
+} from 'reactstrap'
 
 class PostProtectedIndex extends Component {
   render() {
@@ -7,9 +15,7 @@ class PostProtectedIndex extends Component {
     return (
       <>
         <h1>These are your current posts</h1>
-        <div id="grid-protected-index">
-          {usersPosts && posts &&
-            posts.map((post, index) => {
+          {usersPosts && usersPosts.map((post, index) => {
             return <Card id="index-card" key={index}>
                 <CardBody id="card-body-index">
                 <CardTitle>{post.topic}</CardTitle>
@@ -24,7 +30,6 @@ class PostProtectedIndex extends Component {
               </Card>
             })
           }
-        </div>
       </>
     )
   }

@@ -80,16 +80,20 @@ body {
     }
 }
 
-@mixin background($imgpath, $postion: 0 0, $repeat: no-repeat) {
+@mixin background($imgpath, $position: bottom 0% right 50%, $repeat: no-repeat, $size: cover) {
     background: {
         image: url($imgpath);
-        postion: $postion;
-        repear: $repeat
+        position: $position;
+        repeat: $repeat;
+        size: $size;
     }
 }
 
 .unprotected-index {
-    @include background("/app/assets/images/jonatan-pie-3l3RwQdHRHg-unsplash.jpg");
+    height: auto;
+    width: 100%;
+    padding-top: 3em;
+    @include background("background.jpg");
     h1 {
         text-align: center;
     }

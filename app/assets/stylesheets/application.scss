@@ -16,16 +16,32 @@
 
 @import 'bootstrap';
 
-
-body {
-    background: black;
-    color: white;
-}
-
 $pink-color: #f72585;
 $blue-color: #4cc9f0;
 $purple-color: #990BF5;
 $gray-color: #131313;
+
+@mixin scrollbar($size, $foreground-color, $background-color) {
+    &::-webkit-scrollbar {
+      width:  $size;
+      height: $size;
+    }
+  
+    &::-webkit-scrollbar-thumb {
+      background: $foreground-color;
+      border-radius: 25px;
+    }
+  
+    &::-webkit-scrollbar-track {
+      background: $background-color;
+    }
+  }
+
+body {
+    background: black;
+    color: white;
+    @include scrollbar(10px, $purple-color, black);
+}
 
 
 .app-name {
@@ -65,7 +81,6 @@ $gray-color: #131313;
 }
 
 .unprotected-index {
-    overflow-x: hidden;
     h1 {
         text-align: center;
     }
@@ -95,11 +110,13 @@ $gray-color: #131313;
         }
         .dropdown-menu {
             background-color: black;
+            height: auto;
             .dropdown-header {
                 color: $blue-color
             }
             .dropdown-item {
-                color: $pink-color
+                color: $pink-color;
+                height: auto;
             }
             .dropdown-item:hover {
                 color: $purple-color;
@@ -111,12 +128,18 @@ $gray-color: #131313;
         }
     }
     #grid-index {
-        margin: 4em 0;   
+        margin: 4em 0;
+        overflow-x: hidden;
+        .row {
+            display: flex;
+            justify-content: center;
+        }
         .card {
-            background-color: transparent;
+            background-color: $gray-color;
             text-align: center;
-            border: none;
+            border: solid 1px white;
             border-radius: 0;
+            margin: 2em;
             #card-subtitles {
                 display: flex;
                 justify-content: space-between;

@@ -7,15 +7,14 @@ import {
   CardBody,
   CardTitle,
   CardSubtitle,
-  CardText,
-  Button,
+  CardGroup,
+  Row
 } from 'reactstrap'
 
 
 class PostIndex extends Component {
   constructor(props) {
     super(props)
-    
     this.toggle = this.toggle.bind(this);
     this.state = {
       dropdownOpen: false,
@@ -38,12 +37,12 @@ class PostIndex extends Component {
     const filteredPosts = posts.filter(post => post.unit === this.state.openedUnit)
     return (
       <>
-        <div className='unprotected__index__component'>
+        <div className='unprotected-index'>
           <h1>Below you will find all of the help you need to get yourself off that struggle bus!</h1>
-          <div className='DropdownButton'>
+          <div className='dropdown-button'>
             <ButtonDropdown isOpen={this.state.dropdownOpen} toggle={this.toggle}>
             <DropdownToggle caret>
-              Select Unit
+              {!this.state.openedUnit ? "Select Unit": this.state.openedUnit}
             </DropdownToggle>
             <DropdownMenu>
               <DropdownItem header>Select Unit</DropdownItem>
@@ -73,23 +72,27 @@ class PostIndex extends Component {
           </div>
           {!this.state.openedUnit &&
             <>
-              <h2>These are the most recent cards</h2>
+              <h2>These are the most recent posts</h2>
               <div id="grid-index">
                 {posts && 
-                    posts.map((post, index) => {
-                    return <Card id="index-card" key={index}>
-                        <CardBody id="card-body-index">
-                        <CardTitle>{post.topic}</CardTitle>
+                <Row xs="3">
+                  {posts.slice(0, 6).map((post, index) => {
+                  return <Card id="index-card" key={index}>
+                      <CardBody id="card-body-index">
+                      <CardTitle>{post.topic}</CardTitle>
+                      <div id="card-subtitles">
                         <CardSubtitle>{post.unit}</CardSubtitle>
-                        <CardSubtitle>{post.post_type}</CardSubtitle>
                         <CardSubtitle>{post.date}</CardSubtitle>
-                        <CardImg id="card-image" src={post.image} alt="Card image cap" />
-                        <NavLink id="info-button" to={`/postshow/${post.id}`}>
-                            More Info
-                        </NavLink>
-                        </CardBody>
-                      </Card>
-                    })
+                      </div>
+                      <CardImg id="card-image" src={post.image} alt="Card image cap" />
+                        <CardSubtitle>{post.post_type}</CardSubtitle>
+                      <NavLink id="info-button" to={`/postshow/${post.id}`}>
+                          More Info
+                      </NavLink>
+                      </CardBody>
+                    </Card>
+                  })}
+                </Row>
                 }
               </div>
             </>
@@ -97,20 +100,22 @@ class PostIndex extends Component {
           {this.state.openedUnit &&
           <>
               <h2>These are the posts for {this.state.openedUnit}</h2>
-              {filteredPosts.map((post, index) => {
-              return <Card id="index-card" key={index}>
-                  <CardBody id="card-body-index">
-                  <CardTitle>{post.topic}</CardTitle>
-                  <CardSubtitle>{post.unit}</CardSubtitle>
-                  <CardSubtitle>{post.post_type}</CardSubtitle>
-                  <CardSubtitle>{post.date}</CardSubtitle>
-                  <CardImg id="card-image" src={post.image} alt="Card image cap" />
-                  <NavLink id="info-button" to={`/postshow/${post.id}`}>
-                      More Info
-                  </NavLink>
-                  </CardBody>
-                </Card>
-              })}
+              <Row xs="3">
+                {filteredPosts.map((post, index) => {
+                return <Card id="index-card" key={index}>
+                    <CardBody id="card-body-index">
+                    <CardTitle>{post.topic}</CardTitle>
+                    <CardSubtitle>{post.unit}</CardSubtitle>
+                    <CardSubtitle>{post.post_type}</CardSubtitle>
+                    <CardSubtitle>{post.date}</CardSubtitle>
+                    <CardImg id="card-image" src={post.image} alt="Card image cap" />
+                    <NavLink id="info-button" to={`/postshow/${post.id}`}>
+                        More Info
+                    </NavLink>
+                    </CardBody>
+                  </Card>
+                })}
+              </Row>
           </>
             }
         </div>

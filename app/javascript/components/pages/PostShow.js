@@ -17,19 +17,19 @@ class PostShow extends Component {
       deleted: false,
     }
   }
-  
+
   handleDelete = () => {
-    this.setState({deleted: true})
+    this.setState({ deleted: true })
     alert("Post successfully deleted")
   }
-  
+
   render() {
     const { post, current_user, logged_in } = this.props
     const postUserId = post.user_id
-    let usersPost 
+    let usersPost
     logged_in ? usersPost = current_user.id === postUserId : null
-    if(this.state.deleted) {
-      return(<Redirect to="/postindex" />)
+    if (this.state.deleted) {
+      return (<Redirect to="/postindex" />)
     }
     return (
       <>
@@ -45,7 +45,7 @@ class PostShow extends Component {
             </NavLink>
           </CardBody>
         </Card>
-        { logged_in && usersPost &&
+        {logged_in && usersPost &&
           <div id="show-user-options">
             <Link to={`/postedit/${post.id}`} className="btn btn-warning" color="warning">Edit</Link>
             <Button onClick={this.handleDelete} color="danger">Delete</Button>

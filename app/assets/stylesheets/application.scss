@@ -152,6 +152,66 @@ $purple-color: #990BF5;
 
 }
 
+//about__us page
 .aboutus__component{
     background-color: #4cc9f0;
+
+    .LFYlogo {
+        display:flex;
+        justify-content: center;
+        margin: auto;
+        padding-top: 3rem;
+    }
+    
+    .header-p {
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 2rem;
+        color: black;
+    }
+        
+    .aboutus__cards {
+        display: flex;                  
+        flex-direction: row;           
+        flex-wrap: nowrap;              
+        justify-content: space-around;
+        padding-bottom: 5rem;
+
+        .card {
+            border-radius: 50px;
+            height: 1000px;
+        
+            .headshot {
+                border-radius: 50%;
+                padding: 1rem;
+            }
+            
+            .card-body {
+                display:flex;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .socials__div{
+                display: flex;                  
+                flex-direction: row;                         
+                justify-content: space-between;
+                
+                .github__icon {
+                    height: 75px;
+                    width: 75px;
+                    margin-left: 3rem;
+                }
+        
+                .linkedin__icon {
+                    height: 75px;
+                    width: 75px;
+                    margin-right: 3rem;
+                }
+            }
+        }
+    }        
 }
+
+ 

@@ -41,11 +41,12 @@ class PostShow extends Component {
             <CardImg id='card-image' src={post.image} alt="" />
             <CardText> {post.content}</CardText>
             <NavLink to={'/'}>
-              <Button >Back Home</Button>
+              <Button style={{ background: '#f72585' }} > Back Home</Button>
             </NavLink>
           </CardBody>
         </Card>
-        {logged_in && usersPost &&
+        {
+          logged_in && usersPost &&
           <div id="show-user-options">
             <Link to={`/postedit/${post.id}`} className="btn btn-warning" color="warning">Edit</Link>
             <Button onClick={this.handleDelete} color="danger">Delete</Button>

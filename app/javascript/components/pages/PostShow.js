@@ -35,9 +35,9 @@ class PostShow extends Component {
       <>
         <Card className='index-cards' style={{ width: '60rem', height: '30rem' }}>
           <CardBody>
-            <CardTitle className='card-title-sub'> {post.topic}</CardTitle>
-            <CardSubtitle className='card-title-sub'>{post.date}</CardSubtitle>
-            <CardSubtitle className='card-title-sub'> {post.cohort}</CardSubtitle>
+            <CardTitle className='card-title1'> {post.topic}</CardTitle>
+            <CardSubtitle className='card-title-sub1'>{post.date}</CardSubtitle>
+            <CardSubtitle className='card-title-sub2'> {post.cohort}</CardSubtitle>
             <CardImg id='card-image' src={post.image} alt="" />
             <CardText> {post.content}</CardText>
             <NavLink to={'/'}>

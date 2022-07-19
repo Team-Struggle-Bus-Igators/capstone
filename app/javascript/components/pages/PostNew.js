@@ -149,11 +149,11 @@ export default class PostNew extends Component {
                 type="text"
               />
             </FormGroup>
-            <FormGroup className='bigger'>
+            <FormGroup>
               <Label className='label-color'>
                 Content*
               </Label>
-              <Input
+              <Input className='form-control1'
                 onChange={this.handleChange}
                 name="content"
                 type="text-area"

@@ -30,13 +30,6 @@ $purple-color: #990BF5;
     font-size: xx-large;
 }
 
-.image-1 {
-    flex: 1;
-    width: fit-content;
-    height: 500px;
-}
-
-
 
 .app-name {
     color: $blue-color;
@@ -88,6 +81,14 @@ $purple-color: #990BF5;
 }
 
 // home
+
+.image-1 {
+    flex: 1;
+    width: fit-content;
+    height: 500px;
+    max-width: 99%;
+    max-height: 99%;
+}
 
 .home-component {
     text-align: center;
@@ -156,6 +157,10 @@ h1 {
     color: black;
 }
 
+.form-control1 {
+    padding-bottom: 5rem;
+}
+
 
 // not found page
 .error {
@@ -197,22 +202,23 @@ h1 {
     color: $purple-color;
 }
 
+
+// post-show
 .index-cards {
-    color: white;
     background-color: $blue-color;
     margin-left: auto;
     margin-right: auto;
-    // position: absolute;
-    // width: 1124px;
-    // height: 600px;
-    // left: 156px;
+}
 
+
+.card-title1 {
+    font-size: x-large;
 
 }
 
-.card-title-sub {
-    color: white;
-    font-size: larger;
-    justify-content: space-between;
-
+.card-title-sub1 {
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%);
 }

@@ -40,7 +40,7 @@ class PostIndex extends Component {
     )
     return (
       <>
-        <div className="unprotected-index">
+        <div className="index">
           <h1>
             Below you will find all of the help you need to get yourself off
             that struggle bus!
@@ -186,33 +186,33 @@ class PostIndex extends Component {
               <h2>These are the posts for {this.state.openedUnit}</h2>
               <div className="grid-index">
                 <Row xs="3">
-                {filteredPosts.map((post, index) => {
-                  return (
-                    <Card className="index-card" key={index}>
-                      <CardBody className="card-body-index">
-                        <CardTitle>{post.topic}</CardTitle>
-                        <div className="card-subtitles">
-                          <CardSubtitle>{post.unit}</CardSubtitle>
-                          <CardSubtitle>{post.date}</CardSubtitle>
-                        </div>
-                        <CardImg
-                          id="card-image"
-                          src={post.image}
-                          alt="Card image cap"
-                        />
-                        <CardSubtitle>{post.post_type}</CardSubtitle>
-                        <NavLink
-                          className="info-button"
-                          to={`/postshow/${post.id}`}
-                        >
-                          More Info
-                        </NavLink>
-                      </CardBody>
-                    </Card>
-                  )
-                })}
+                  {filteredPosts.map((post, index) => {
+                    return (
+                      <Card className="index-card" key={index}>
+                        <CardBody className="card-body-index">
+                          <CardTitle>{post.topic}</CardTitle>
+                          <div className="card-subtitles">
+                            <CardSubtitle>{post.unit}</CardSubtitle>
+                            <CardSubtitle>{post.date}</CardSubtitle>
+                          </div>
+                          <CardImg
+                            id="card-image"
+                            src={post.image}
+                            alt="Card image cap"
+                          />
+                          <CardSubtitle>{post.post_type}</CardSubtitle>
+                          <NavLink
+                            className="info-button"
+                            to={`/postshow/${post.id}`}
+                          >
+                            More Info
+                          </NavLink>
+                        </CardBody>
+                      </Card>
+                    )
+                  })}
                 </Row>
-                </div>
+              </div>
             </>
           )}
         </div>

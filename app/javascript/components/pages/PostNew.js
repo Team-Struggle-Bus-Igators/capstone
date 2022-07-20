@@ -181,7 +181,7 @@ export default class PostNew extends Component {
             Submit
           </Button>
           {this.state.submitted ? alert("Your post has been successfully submitted") : null}
-          {this.state.submitted ? <Redirect to={"/postindex"} /> : null}
+          {this.state.submitted ? <Redirect to={"/postprotectedindex"} /> : null}
         </Form>
       </>
     )

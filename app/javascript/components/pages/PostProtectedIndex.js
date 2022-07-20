@@ -1,37 +1,52 @@
-import React, { Component } from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { Component } from "react"
+import { NavLink } from "react-router-dom"
 import {
   Card,
   CardImg,
   CardBody,
   CardTitle,
   CardSubtitle,
-} from 'reactstrap'
+  Row,
+} from "reactstrap"
 
 class PostProtectedIndex extends Component {
   render() {
     const { posts, current_user } = this.props
-    const usersPosts = posts.filter(post => post.user_id === current_user.id)
+    const usersPosts = posts.filter((post) => post.user_id === current_user.id)
     return (
-      <>
+      <div className="index">
         <h1>These are your current posts</h1>
-          {usersPosts && usersPosts.map((post, index) => {
-            return (
-              <Card id="index-card" key={index}>
-                <CardBody id="card-body-index">
-                  <CardTitle>{post.topic}</CardTitle>
-                    <CardSubtitle>{post.unit}</CardSubtitle>
-                    <CardSubtitle>{post.post_type}</CardSubtitle>
-                    <CardSubtitle>{post.date}</CardSubtitle>
-                  <CardImg id="card-image" src={post.image} alt="Card image cap" />
-                  <NavLink id="info-button" to={`/postshow/${post.id}`}>
-                      More Info
-                  </NavLink>
-                </CardBody>
-              </Card>
-            )
-          })}
-      </>
+        <div className="grid-index">
+          <Row xs="3">
+            {usersPosts &&
+              usersPosts.map((post, index) => {
+                return (
+                  <Card id="index-card" key={index}>
+                    <CardBody id="card-body-index">
+                      <CardTitle>{post.topic}</CardTitle>
+                      <div id="card-subtitles">
+                        <CardSubtitle>{post.unit}</CardSubtitle>
+                        <CardSubtitle>{post.date}</CardSubtitle>
+                      </div>
+                      <CardImg
+                        id="card-image"
+                        src={post.image}
+                        alt="Card image cap"
+                      />
+                      <CardSubtitle>{post.post_type}</CardSubtitle>
+                      <NavLink
+                        className="info-button"
+                        to={`/postshow/${post.id}`}
+                      >
+                        More Info
+                      </NavLink>
+                    </CardBody>
+                  </Card>
+                )
+              })}
+          </Row>
+        </div>
+      </div>
     )
   }
 }

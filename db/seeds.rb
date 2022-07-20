@@ -5,7 +5,10 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-Post.create([
+
+user = User.where(email: 'test5@gmail.com').first_or_create(password: '123456', password_confirmation: '123456')
+
+posts = [
   {
     post_type: 1,
     image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
@@ -16,7 +19,6 @@ Post.create([
     date: "2020-01-28 05:40:30",
     cohort: "Charlie",
     link: "https://www.youtube.com/",
-    user_id: 1,
   },
   {
     post_type: 2,
@@ -28,7 +30,6 @@ Post.create([
     date: "2020-03-28 05:40:30",
     cohort: "Charlie",
     link: "https://www.youtube.com/",
-    user_id: 1,
   },
   {
     post_type: 1,
@@ -40,7 +41,6 @@ Post.create([
     date: "2020-07-28 05:40:30",
     cohort: "Charlie",
     link: "https://www.youtube.com/",
-    user_id: 1,
   },
   { 
     post_type: 2,
@@ -52,7 +52,6 @@ Post.create([
     date: "2020-07-28 05:40:30",
     cohort: "Charlie",
     link: "https://www.youtube.com/",
-    user_id: 1, 
   },
   {
     post_type: 1,
@@ -64,9 +63,12 @@ Post.create([
     date: "2020-10-28 05:40:30",
     cohort: "Charlie",
     link: "https://www.youtube.com/",
-    user_id: 1,
   },
-])
+]
 
+posts.each do | post |
+  user.posts.create post
+end
 
-p "creating #{Post.count} posts"
+p user.posts
+p "Posts seeded successfully"

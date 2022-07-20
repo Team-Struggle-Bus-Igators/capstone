@@ -5,6 +5,11 @@ class PostsController < ApplicationController
         posts = Post.all.order('created_at DESC')
         render json: posts
     end 
+    
+    def show 
+        post = Post.find(params[:id])
+        render json: post
+    end
 
     def create
         post = Post.create(post_params)
@@ -28,6 +33,7 @@ class PostsController < ApplicationController
     def destroy
         post = Post.find(params[:id])
         post.destroy
+        render json: {destroy: true}
     end
 
     private

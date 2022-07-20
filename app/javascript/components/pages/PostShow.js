@@ -33,12 +33,12 @@ class PostShow extends Component {
     }
     return (
       <>
-        <Card className='index-cards' style={{ width: '60rem', height: '30rem' }}>
+        <Card style={{ width: '60rem', height: '30rem' }}>
           <CardBody>
-            <CardTitle className='card-title1'> {post.topic}</CardTitle>
-            <CardSubtitle className='card-title-sub1'>{post.date}</CardSubtitle>
-            <CardSubtitle className='card-title-sub2'> {post.cohort}</CardSubtitle>
-            <CardImg id='card-image' src={post.image} alt="" />
+            <CardTitle> {post.topic}</CardTitle>
+            <CardSubtitle>{post.date}</CardSubtitle>
+            <CardSubtitle> {post.cohort}</CardSubtitle>
+            <CardImg src={post.image} alt="" />
             <CardText> {post.content}</CardText>
             <NavLink to={'/'}>
               <Button style={{ background: '#f72585' }} > Back Home</Button>

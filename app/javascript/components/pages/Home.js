@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-import HomePagePhoto from '../assets/HomePagePhoto2.jpg'
+// import HomePagePhoto from '../assets/HomePagePhoto2.jpg'
 import Logo from '../assets/Learnify.svg'
+import HomePage from '../assets/HomePage.jpg'
 
 
 class Home extends Component {
@@ -9,7 +10,7 @@ class Home extends Component {
     return (
       <>
         <div className='home-component'>
-          <img className='image-1' src={HomePagePhoto} alt="HomePagePhoto" />
+          <img className='image-1' src={HomePage} alt="HomePagePhoto" />
           <div className='centered'>
             <h1 className='h1c'>Welcome to <img src={Logo} /></h1>
           </div>

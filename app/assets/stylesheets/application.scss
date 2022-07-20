@@ -85,24 +85,32 @@ $purple-color: #990BF5;
 .image-1 {
     flex: 1;
     width: fit-content;
-    height: 500px;
-    max-width: 99%;
+    height: 400px;
+    width: 90rem;
     max-height: 99%;
+}
+
+.bodyhome {
+    background-color: $blue-color;
 }
 
 .home-component {
     text-align: center;
     color: white;
+    background-color: $blue-color;
 }
 
 .call-to-action {
     color: $purple-color;
     background-color: black;
     font-size: larger;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .home-body {
-    background-color: $purple-color;
     font-size: larger;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
@@ -114,6 +122,10 @@ $purple-color: #990BF5;
     transform: translate(-50%, -50%);
     background-color: black;
 }
+
+
+
+
 
 
 
@@ -136,10 +148,6 @@ h1 {
 }
 
 .label-color {
-    color: black;
-}
-
-.postnew-h1 {
     color: black;
 }
 

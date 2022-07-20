@@ -64,6 +64,17 @@ posts = [
     cohort: "Charlie",
     link: "https://www.youtube.com/",
   },
+  {
+    post_type: 2,
+    image: "https://images.unsplash.com/photo-1605256428594-fce1cc48c8b9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1674&q=80",
+    unit: 7,
+    topic: "Home Fried Brains",
+    author: "Collin O",
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur elit tellus, placerat vel ligula laoreet, viverra faucibus sem. Donec iaculis in orci eget dictum. Donec tincidunt accumsan rutrum. Etiam eget rutrum lorem, et tempus ex. Ut orci sapien, efficitur vitae libero sit amet, lobortis congue diam. Nam elementum dolor pharetra tortor ornare, ut eleifend lorem tincidunt. Donec vel nulla tincidunt, consectetur nulla at, cursus urna. Duis vestibulum enim vel tellus dignissim consequat. Integer dui purus, egestas a felis a, semper interdum odio. Ut ligula turpis, viverra a metus at, viverra pretium tellus.",
+    date: "2020-10-28 05:40:30",
+    cohort: "Charlie 2022",
+    link: "https://www.youtube.com/",
+  },
 ]
 
 posts.each do | post |

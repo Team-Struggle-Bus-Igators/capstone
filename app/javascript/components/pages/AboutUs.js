@@ -3,6 +3,7 @@ import logo from "../assets/Logo.svg";
 import GithubLogo from "../assets/github-icon.svg";
 import LinkedInLogo from "../assets/linkedin-logo.svg";
 import Collin from "../assets/Collin-Headshot.jpg";
+import Geo from "../assets/Geo-Headshot.jpeg"
 import {
   Card,
   CardBody,
@@ -49,7 +50,7 @@ export default class AboutUs extends Component {
                   <div className="socials__div">
                     <a
                       href="https://github.com/CJOcode"
-                      target="_blank" 
+                      target="_blank"
                     >
                       <img className="github__icon" alt="github logo" src={GithubLogo} />
                     </a>
@@ -81,21 +82,21 @@ export default class AboutUs extends Component {
                     About Me!
                   </CardSubtitle>
                   <CardText>
-                    Hello, my name is Logan Ramos. I am currently a full stack software engineer who primarily works with React and Rails on a daily basis. I enjoy learning about new technologies and what we can do with them. In my free time I primarily play video games which is what led me into this field of work, I always wanted to know what happened behind the scenes. 
+                    Hello, my name is Logan Ramos. I am currently a full stack software engineer who primarily works with React and Rails on a daily basis. I enjoy learning about new technologies and what we can do with them. In my free time I primarily play video games which is what led me into this field of work, I always wanted to know what happened behind the scenes.
                   </CardText>
                   <div className="socials__div">
-                  <a
-                    href="https://github.com/Renzlawr"
-                    target="_blank"
-                  >
-                    <img className="github__icon" alt="github logo" src={GithubLogo} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/loganramos/"
-                    target="_blank"
-                  >
-                    <img className="linkedin__icon" alt="linkedin logo" src={LinkedInLogo} />
-                  </a>
+                    <a
+                      href="https://github.com/Renzlawr"
+                      target="_blank"
+                    >
+                      <img className="github__icon" alt="github logo" src={GithubLogo} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/loganramos/"
+                      target="_blank"
+                    >
+                      <img className="linkedin__icon" alt="linkedin logo" src={LinkedInLogo} />
+                    </a>
                   </div>
                 </CardBody>
               </Card>
@@ -110,7 +111,7 @@ export default class AboutUs extends Component {
                 <CardImg
                   className="headshot"
                   alt="Team member head shot"
-                  src="https://picsum.photos/300/200"
+                  src={Geo}
                 />
                 <CardBody>
                   <CardTitle tag="h5">Geovanna Perez</CardTitle>
@@ -118,22 +119,21 @@ export default class AboutUs extends Component {
                     About Me!
                   </CardSubtitle>
                   <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Hello, my name is Geovanna Perez and I am a full stack web developer with experience on React and Ruby on Rails. On my spare time I enjoy watching movies. Thank you for taking the time to meet us!
                   </CardText>
                   <div className="socials__div">
-                  <a
-                    href="https://github.com/Geovannapg12"
-                    target="_blank"
-                  >
-                    <img className="github__icon" alt="github logo" src={GithubLogo} />
-                  </a>
-                  <a
-                    href="https://www.linkedin.com/in/geovanna-perez-38725123b/"
-                    target="_blank"
-                  >
-                    <img className="linkedin__icon" alt="linkedin logo" src={LinkedInLogo} />
-                  </a>
+                    <a
+                      href="https://github.com/Geovannapg12"
+                      target="_blank"
+                    >
+                      <img className="github__icon" alt="github logo" src={GithubLogo} />
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/geovanna-perez-38725123b/"
+                      target="_blank"
+                    >
+                      <img className="linkedin__icon" alt="linkedin logo" src={LinkedInLogo} />
+                    </a>
                   </div>
                 </CardBody>
               </Card>

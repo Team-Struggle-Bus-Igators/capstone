@@ -81,8 +81,7 @@ export default class AboutUs extends Component {
                     About Me!
                   </CardSubtitle>
                   <CardText>
-                    Some quick example text to build on the card title and make
-                    up the bulk of the card's content.
+                    Hello, my name is Logan Ramos. I am currently a full stack software engineer who primarily works with React and Rails on a daily basis. I enjoy learning about new technologies and what we can do with them. In my free time I primarily play video games which is what led me into this field of work, I always wanted to know what happened behind the scenes. 
                   </CardText>
                   <div className="socials__div">
                   <a

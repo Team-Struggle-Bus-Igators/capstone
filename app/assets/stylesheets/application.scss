@@ -140,7 +140,7 @@ body {
             }
         }
     }
-    #grid-index {
+    .grid-index {
         margin: 4em 0;
         overflow-x: hidden;
         .row {
@@ -153,14 +153,14 @@ body {
             border: solid 1px white;
             border-radius: 0;
             margin: 2em;
-            #card-subtitles {
+            .card-subtitles {
                 display: flex;
                 justify-content: space-between;
             }
             .card-subtitle {
                 margin: .5em 0;
             }
-            #info-button {
+            .info-button {
                 border: solid 1px white;
                 color: $blue-color;
                 padding: 0.375rem 0.75rem;

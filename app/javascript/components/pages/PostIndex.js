@@ -148,7 +148,7 @@ class PostIndex extends Component {
           {!this.state.openedUnit && (
             <>
               <h2>These are the most recent posts</h2>
-              <div id="grid-index">
+              <div className="grid-index">
                 {posts && (
                   <Row xs="3">
                     {posts.slice(0, 6).map((post, index) => {
@@ -167,7 +167,7 @@ class PostIndex extends Component {
                             />
                             <CardSubtitle>{post.post_type}</CardSubtitle>
                             <NavLink
-                              id="info-button"
+                              className="info-button"
                               to={`/postshow/${post.id}`}
                             >
                               More Info
@@ -184,13 +184,14 @@ class PostIndex extends Component {
           {this.state.openedUnit && (
             <>
               <h2>These are the posts for {this.state.openedUnit}</h2>
-              <Row xs="3">
+              <div className="grid-index">
+                <Row xs="3">
                 {filteredPosts.map((post, index) => {
                   return (
-                    <Card id="index-card" key={index}>
-                      <CardBody id="card-body-index">
+                    <Card className="index-card" key={index}>
+                      <CardBody className="card-body-index">
                         <CardTitle>{post.topic}</CardTitle>
-                        <div id="card-subtitles">
+                        <div className="card-subtitles">
                           <CardSubtitle>{post.unit}</CardSubtitle>
                           <CardSubtitle>{post.date}</CardSubtitle>
                         </div>
@@ -200,14 +201,18 @@ class PostIndex extends Component {
                           alt="Card image cap"
                         />
                         <CardSubtitle>{post.post_type}</CardSubtitle>
-                        <NavLink id="info-button" to={`/postshow/${post.id}`}>
+                        <NavLink
+                          className="info-button"
+                          to={`/postshow/${post.id}`}
+                        >
                           More Info
                         </NavLink>
                       </CardBody>
                     </Card>
                   )
                 })}
-              </Row>
+                </Row>
+                </div>
             </>
           )}
         </div>

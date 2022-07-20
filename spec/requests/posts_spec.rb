@@ -2,7 +2,6 @@ require 'rails_helper'
 
 RSpec.describe "Posts", type: :request do
   user = User.where(email: 'test1@gmail.com').first_or_create(password: '123123', password_confirmation: '123123')
-
   
   describe "GET /index" do
     user.posts.create(
@@ -19,6 +18,14 @@ RSpec.describe "Posts", type: :request do
 
     it 'returns a list of posts' do
       get '/posts'
+      posts = JSON.parse(response.body)
+      expect(response).to have_http_status(200)
+    end
+  end
+
+  describe "GET /show" do
+    it 'returns a single post' do
+      get '/posts/1'
       posts = JSON.parse(response.body)
       expect(response).to have_http_status(200)
     end

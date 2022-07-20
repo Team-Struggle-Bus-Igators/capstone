@@ -74,3 +74,7 @@ gem "react-rails", "~> 2.6"
 gem "devise", "~> 4.8"
 
 gem "bootstrap", "~> 5.1"
+
+gem 'simplecov', require: false, group: :test
+
+gem 'rails-controller-testing'

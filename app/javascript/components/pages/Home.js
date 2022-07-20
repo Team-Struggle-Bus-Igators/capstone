@@ -6,6 +6,31 @@ import HomePage from '../assets/HomePage.jpg'
 
 
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      quote: "loading..."
+    }
+  }
+
+// Coming back to this later for icebox
+  componentDidMount = () => {
+    fetch("https://zenquotes.io/api/random", {
+      method: "GET",
+      mode: "no-cors",
+      headers: {
+        "Content-Type": "application/json",
+    },
+    })
+    .then(response => {
+      console.log(response.json()) })
+    .then(payload => this.setState({quote: payload}))
+    // .then((data) => {
+    //   resolve(data ? this.setState({quote: JSON.parse(data)}): {})
+    // })
+    .catch(err => console.log(err))
+  }
+
   render() {
     return (
       <>

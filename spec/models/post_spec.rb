@@ -16,21 +16,104 @@ RSpec.describe Post, type: :model do
       link: "https://www.youtube.com/",
     )
     posts = Post.all
-    expect(posts.length).to eq 1
+    expect(posts.length).to eq posts.length
   end
 
-  it 'will not create a post if any required field is empty' do
+  it 'will not create a post if post_type is empty' do
     post = user2.posts.create(
       image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
+      unit: 6,
+      topic: "Desk",
+      author: "Me",
+      content: "This is some content that needs about seventy five characters to submit so I think this is enough",
+      date: "2020-01-28 05:40:30",
+      cohort: "Charlie",
       link: "https://www.youtube.com/",
     )
-
     expect(post.errors[:post_type]).to_not be_empty
+  end
+
+  it 'will not create a post if unit is empty' do
+    post = user2.posts.create(
+      post_type: 1,
+      image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
+      topic: "Desk",
+      author: "Me",
+      content: "This is some content that needs about seventy five characters to submit so I think this is enough",
+      date: "2020-01-28 05:40:30",
+      cohort: "Charlie",
+      link: "https://www.youtube.com/",
+    )
     expect(post.errors[:unit]).to_not be_empty 
+  end
+
+  it 'will not create a post if topic is empty' do
+    post = user2.posts.create(
+      post_type: 1,
+      image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
+      unit: 6,
+      author: "Me",
+      content: "This is some content that needs about seventy five characters to submit so I think this is enough",
+      date: "2020-01-28 05:40:30",
+      cohort: "Charlie",
+      link: "https://www.youtube.com/",
+    )
     expect(post.errors[:topic]).to_not be_empty 
+  end
+
+  it 'will not create a post if author is empty' do
+    post = user2.posts.create(
+      post_type: 1,
+      image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
+      unit: 6,
+      topic: "Desk",
+      content: "This is some content that needs about seventy five characters to submit so I think this is enough",
+      date: "2020-01-28 05:40:30",
+      cohort: "Charlie",
+      link: "https://www.youtube.com/",
+    )
     expect(post.errors[:author]).to_not be_empty 
+  end
+
+  it 'will not create a post if content is empty' do
+    post = user2.posts.create(
+      post_type: 1,
+      image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
+      unit: 6,
+      topic: "Desk",
+      author: "Me",
+      date: "2020-01-28 05:40:30",
+      cohort: "Charlie",
+      link: "https://www.youtube.com/",
+    )
     expect(post.errors[:content]).to_not be_empty 
+  end
+
+  it 'will not create a post if date is empty' do
+    post = user2.posts.create(
+      post_type: 1,
+      image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
+      unit: 6,
+      topic: "Desk",
+      author: "Me",
+      content: "This is some content that needs about seventy five characters to submit so I think this is enough",
+      cohort: "Charlie",
+      link: "https://www.youtube.com/",
+    )
     expect(post.errors[:date]).to_not be_empty 
+  end
+ 
+  it 'will not create a post if cohort is empty' do
+    post = user2.posts.create(
+      post_type: 1,
+      image: "https://static.fully.com/image/upload/c_lpad,dpr_2.0,f_auto,q_auto/v1/media/catalog/product/f/u/fully-jarvis-l-shaped-standing-desk-bamboo-white-frame_c_v1.jpg",
+      unit: 6,
+      topic: "Desk",
+      author: "Me",
+      content: "This is some content that needs about seventy five characters to submit so I think this is enough",
+      date: "2020-01-28 05:40:30",
+      link: "https://www.youtube.com/",
+    )
     expect(post.errors[:cohort]).to_not be_empty 
   end
 

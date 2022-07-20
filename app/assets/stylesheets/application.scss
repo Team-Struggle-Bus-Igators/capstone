@@ -44,10 +44,16 @@ body {
 }
 
 
+.h1c {
+    font-size: xx-large;
+}
+
+
 .app-name {
     color: $blue-color;
     font-size: xx-large;
 }
+
 
 .navbar {
     display: flex;
@@ -173,20 +179,78 @@ body {
 
 // home
 
+.image-1 {
+    flex: 1;
+    width: fit-content;
+    height: 400px;
+    width: 90rem;
+    max-height: 99%;
+}
+
+.bodyhome {
+    background-color: $blue-color;
+}
+
 .home-component {
     text-align: center;
-    color: $pink-color;
+    color: white;
+    background-color: $blue-color;
 }
 
 .call-to-action {
     color: $purple-color;
     background-color: black;
+    font-size: larger;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-left: 30px;
+    margin-right: 30px;
 }
 
 .home-body {
+    font-size: larger;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+
+.centered {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: black;
+}
+
+
+
+
+
+
+
+// postNew
+h1 {
+    text-align: center;
+}
+
+.postnew-body {
     background-color: $blue-color;
 }
 
+.postnew-button {
+    margin: auto;
+    text-align: center;
+}
+
+#button-color {
+    background-color: $pink-color;
+}
+
+.label-color {
+    color: black;
+}
+
+.form-control1 {
+    padding-bottom: 5rem;
+}
 
 
 // not found page
@@ -229,22 +293,23 @@ body {
     color: $purple-color;
 }
 
+
+// post-show
 .index-cards {
-    color: white;
     background-color: $blue-color;
     margin-left: auto;
     margin-right: auto;
-    // position: absolute;
-    // width: 1124px;
-    // height: 600px;
-    // left: 156px;
+}
 
+
+.card-title1 {
+    font-size: x-large;
 
 }
 
-.card-title-sub {
-    color: white;
-    font-size: larger;
-    justify-content: space-between;
-
+.card-title-sub1 {
+    position: absolute;
+    top: 10%;
+    left: 90%;
+    transform: translate(-50%, -50%);
 }

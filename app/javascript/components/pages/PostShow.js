@@ -19,6 +19,7 @@ class PostShow extends Component {
     }
   }
 
+
   componentDidMount = () => {
     this.readPost()
   }
@@ -35,7 +36,7 @@ class PostShow extends Component {
     this.setState({deleted: true})
     alert("Post successfully deleted")
   }
-  
+
   render() {
     if(this.state.post === null) {
       return null
@@ -43,26 +44,27 @@ class PostShow extends Component {
     const { current_user, logged_in } = this.props
     const { post } = this.state
     const postUserId = post.user_id
-    let usersPost 
+    let usersPost
     logged_in ? usersPost = current_user.id === postUserId : null
-    if(this.state.deleted) {
-      return(<Redirect to="/postindex" />)
+    if (this.state.deleted) {
+      return (<Redirect to="/postindex" />)
     }
     return (
       <>
-        <Card className='index-cards' style={{ width: '60rem', height: '30rem' }}>
+        <Card style={{ width: '60rem', height: '30rem' }}>
           <CardBody>
-            <CardTitle className='card-title-sub'> {post.topic}</CardTitle>
-            <CardSubtitle className='card-title-sub'>{post.date}</CardSubtitle>
-            <CardSubtitle className='card-title-sub'> {post.cohort}</CardSubtitle>
-            <CardImg id='card-image' src={post.image} alt="" />
+            <CardTitle> {post.topic}</CardTitle>
+            <CardSubtitle>{post.date}</CardSubtitle>
+            <CardSubtitle> {post.cohort}</CardSubtitle>
+            <CardImg src={post.image} alt="" />
             <CardText> {post.content}</CardText>
             <NavLink to={'/'}>
-              <Button >Back Home</Button>
+              <Button style={{ background: '#f72585' }} > Back Home</Button>
             </NavLink>
           </CardBody>
         </Card>
-        { logged_in && usersPost &&
+        {
+          logged_in && usersPost &&
           <div id="show-user-options">
             <Link to={`/postedit/${post.id}`} className="btn btn-warning" color="warning">Edit</Link>
             <Button onClick={this.handleDelete} color="danger">Delete</Button>

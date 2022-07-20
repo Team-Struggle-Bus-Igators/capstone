@@ -16,7 +16,9 @@ import {
 class PostIndex extends Component {
   constructor(props) {
     super(props)
+
     this.toggle = this.toggle.bind(this)
+    
     this.state = {
       dropdownOpen: false,
       openedUnit: null,

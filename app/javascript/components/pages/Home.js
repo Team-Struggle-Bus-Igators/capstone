@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
-// import HomePagePhoto from '../assets/HomePagePhoto2.jpg'
 import Logo from '../assets/Learnify.svg'
 import HomePage from '../assets/HomePage.jpg'
 

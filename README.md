@@ -1,25 +1,10 @@
-
-Things you may want to cover:
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-
-
 # Learify
 
 ## Overview
 
   We believe everyone who has gone through learn Academy can relate to the feelings of home fried brains! Which is what drove our team to come up with an application that can help future peers spend less time in the frying pan. With that goal in mind we created Learnify, A safe space where future, present, and past students can come to share their experiences, thoughts, and projects during each unit at Learn. This will help future students attending Learn better grasp the content for each unit and alleviate the feeling of being the only one lost in the sauce.
 
-  ### LiveLink: [Learnify]()
+  ### LiveLink: [Learnify](https://learnify-capstone.herokuapp.com/)
   
 ## Features 
 
@@ -55,12 +40,22 @@ Things you may want to cover:
   - [Jest 28.1.3](https://jestjs.io/)
 
 ## How to run project locally
-  - Clone this project locally
-  - Run rails db setup
-  - Install Yarn 
-  - Add Bundle 
+
+Clone this project locally, then run the following commands in terminal.
+```
+$ rails db setup
+$ yarn 
+$ bundle
+``` 
 
 ## How to run the test suite
+
+Test commands:
+```
+$ yarn jest 
+$rspec spec
+```
+
 
 ## Deployment
 
@@ -86,30 +81,67 @@ $ heroku create
 
 5. Ensure that the remote git repo on Heroku was added to your local git config.
 ```bash
-$ git config --list | grep heroku
+$ git config --list
 ```
 
-6. We need to add the `master.key` that your app uses to decrypt your `credentials.yml.enc` file.  Copy the value in `/config/master.key`, and use it in the following command:
+6. Generate a master key
+```
+$ EDITOR="code --wait" rails credentials:edit
+```
+
+7. We need to add the `master.key` that your app uses to decrypt your `credentials.yml.enc` file.  Copy the value in `/config/master.key`, and use it in the following command:
 ```bash
 $ heroku config:set RAILS_MASTER_KEY=<your-master-key-here>
 ```
 
-7. Finally, we're ready to push our code.
+8. In to enable your app to check for the `master.key` we need to uncomment the following code:
+
+   - `config/environments/production.rb`
+
+     ```ruby
+     config.require_master_key = true
+     ```
+
+9. We need to add buildpacks to our heroku dashboard, we can do this through the terminal using the following commands:
+
+   - Add Node Buildpack
+
+     ```bash
+     $ heroku buildpacks:add --index 1 heroku/nodejs
+     ```
+
+   - Add Ruby Buildpack
+     ```bash
+     $ heroku buildpacks:add --index 2 heroku/ruby
+     ```
+
+   ** _Important: Buildpacks must have Node.js run before Ruby_ **
+
+10. Reorganize package JSON.
+  1. move: "webpack": "^4.46.0" and "webpack-cli": "^3.3.12" from dependencies to devDependencies
+  2. move: "enzyme": "^3.11.0" and "enzyme-adapter-react-16": "^1.15.6" from devDependencies to dependencies
+
+11. DELETE node modules folder and run `$ yarn`
+
+12. DELETE yarn.lock file
+    
+13. Finally, we're ready to push our code.
 ```bash
 $ git push heroku main:main
 ```
 
-8. And once that is done, we can migrate.
+14. And once that is done, we can migrate.
 ```bash
 $ heroku run rails db:migrate
 ```
 
-9. You can find your URL to paste into your browser with this command:
+15. You can find your URL to paste into your browser with this command:
 ```bash
 $ heroku apps:info
 ```
 
-10. Afterwards, you can follow your logs, and navigate to your application:
+16. Afterwards, you can follow your logs, and navigate to your application:
 ```bash
 $ heroku logs --tail
 ```
+

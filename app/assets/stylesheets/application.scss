@@ -16,6 +16,11 @@
 
 @import 'bootstrap';
 
+@font-face {
+    font-family: 'JockeyOne';
+    src: url(JockeyOne-Regular.ttf);
+}
+
 $pink-color: #f72585;
 $blue-color: #4cc9f0;
 $purple-color: #990BF5;
@@ -38,6 +43,7 @@ $gray-color: #131313;
   }
 
 body {
+    font-family: 'JockeyOne';
     background: black;
     color: white;
     @include scrollbar(10px, $purple-color, black);
@@ -209,7 +215,6 @@ body {
 
 .home-body {
     font-size: larger;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .centered {

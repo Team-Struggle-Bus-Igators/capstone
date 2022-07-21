@@ -47,7 +47,7 @@ export default class PostEdit extends Component {
   }
 
   render() {
-    const { post } = this.props
+    const { id } = this.props
     return (
       <>
         <div className='postnew-body'>

@@ -16,6 +16,11 @@
 
 @import 'bootstrap';
 
+@font-face {
+    font-family: 'JockeyOne';
+    src: url(JockeyOne-Regular.ttf);
+}
+
 $pink-color: #f72585;
 $blue-color: #4cc9f0;
 $purple-color: #990BF5;
@@ -38,6 +43,7 @@ $gray-color: #131313;
 }
 
 body {
+    font-family: 'JockeyOne';
     background: black;
     color: white;
     @include scrollbar(10px, $purple-color, black);
@@ -235,7 +241,8 @@ body {
     padding-top: 1rem;
     padding-bottom: 10rem;
     font-size: x-large;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    font-size: larger;
 }
 
 .centered {
@@ -354,3 +361,158 @@ h1 {
     left: 90%;
     transform: translate(-50%, -50%);
 }
+
+//about__us page
+.aboutus__component{
+    background-color: #4cc9f0;
+
+    .LFYlogo {
+        display:flex;
+        justify-content: center;
+        margin: auto;
+        padding-top: 3rem;
+    }
+    
+    .header-p {
+        display:flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 2rem;
+        color: black;
+    }
+        
+    .aboutus__cards {
+        display: flex;                  
+        flex-direction: row;           
+        flex-wrap: nowrap;              
+        justify-content: space-around;
+        padding-bottom: 5rem;
+
+        .card {
+            border-radius: 50px;
+            height: 1000px;
+        
+            .headshot {
+                border-radius: 50%;
+                padding: 1rem;
+            }
+            
+            .card-body {
+                display:flex;
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .socials__div{
+                display: flex;                  
+                flex-direction: row;                         
+                justify-content: space-between;
+                
+                .github__icon {
+                    height: 75px;
+                    width: 75px;
+                    margin-left: 3rem;
+                }
+        
+                .linkedin__icon {
+                    height: 75px;
+                    width: 75px;
+                    margin-right: 3rem;
+                }
+            }
+        }
+    }        
+}
+
+.show__component {
+    height: auto;
+    width: 100%;
+    // background-color: #4cc9f0;
+    background-image: url("show_background.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+
+    .show__card {
+        display: flex;
+        align-items: center;
+        border: none;
+        margin: auto;
+        background: none;
+
+        .card-body {
+            width: auto;    
+        }
+
+        .card__title {
+            display: flex;                  
+            flex-direction: column;
+            text-align: center;
+            font-weight: bold;
+            font-size: 50px;
+
+            #title {
+                background-color: black;
+                border-radius: 17px;
+                box-shadow: 0 0 10px yellow;
+            }
+        }
+
+        #card__author{
+            font-size: 25px;
+            margin-top: 1rem;
+            color: black;
+        }
+
+        .cohort__date {
+            display: flex;                  
+            flex-direction: row;
+            justify-content: space-between;
+            font-size: 25px;
+            color: black;
+            padding-bottom: 1rem;
+        }
+        
+        .image__content__button {
+            display: flex;                  
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 3rem;
+
+            #image {
+                height: 500px;
+                width: auto;
+                box-shadow: 0 0 10px black;
+            }
+
+            #content {
+                margin-top: 2rem;
+                font-size: 22px;
+                background-color: black;
+                border-radius: 20px;
+                box-shadow: 0 0 10px yellow;
+                text-align: center;
+            }
+        } 
+
+        .protected__show {
+            display: flex;                  
+            flex-direction: row;
+            justify-content: space-between;
+            margin: auto;
+            padding-bottom: 3rem;
+            
+            // #edit {
+            //     margin-right: 15px;
+            // }
+
+            #delete {
+                margin-left: 15px;
+                color: black;
+            }
+
+        }
+    }
+}
+

@@ -23,7 +23,7 @@ export default class AboutUs extends Component {
             <img src={logo} alt="LFY logo" />
           </div>
           <div className="header-p">
-            <h1>Meet The Team!</h1>
+            <h1>Meet the Team!</h1>
           </div>
           <div className="aboutus__cards">
             <div className="card__div">

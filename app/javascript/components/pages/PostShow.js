@@ -19,7 +19,6 @@ class PostShow extends Component {
     };
   }
 
-
   componentDidMount = () => {
     this.readPost();
   };
@@ -32,7 +31,6 @@ class PostShow extends Component {
   };
 
   handleDelete = () => {
-
     this.props.deletePost(this.props.id);
     this.setState({ deleted: true });
     alert("Post successfully deleted");

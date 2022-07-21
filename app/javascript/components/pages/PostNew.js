@@ -117,6 +117,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="topic"
                 type="text"
+                placeholder='Your Topic'
               />
             </FormGroup>
             <FormGroup>
@@ -127,6 +128,8 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="author"
                 type="text"
+                placeholder='Your Name Here'
+
               />
             </FormGroup>
             <FormGroup>
@@ -147,6 +150,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="cohort"
                 type="text"
+                placeholder='Name and Year of Cohort'
               />
             </FormGroup>
             <FormGroup>
@@ -157,6 +161,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="content"
                 type="text-area"
+                placeholder='Type Your Content Here'
               />
             </FormGroup>
             <FormGroup>
@@ -167,6 +172,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="link"
                 type="text"
+                placeholder='Helpful Link Here'
               />
             </FormGroup>
             <FormGroup>
@@ -177,6 +183,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="image"
                 type="text"
+                placeholder='Upload Image Here'
               />
             </FormGroup>
             <div className='postnew-button'>

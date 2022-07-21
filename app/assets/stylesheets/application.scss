@@ -310,14 +310,28 @@ h1 {
 
 .about-us {
     color: $pink-color;
+    font-size: smaller;
+    text-decoration: none;
+}
+
+.about-us:hover {
+    color: $purple-color;
 }
 
 .back-home {
     color: $blue-color;
+    font-size: smaller;
+    text-decoration: none;
+
+}
+
+.back-home:hover {
+    color: $pink-color;
 }
 
 .footer-name {
     color: $purple-color;
+    font-size: smaller;
 }
 
 

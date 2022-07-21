@@ -51,7 +51,7 @@ export default class PostEdit extends Component {
     return (
       <>
         <div className='postnew-body'>
-          <h1 id='h1edit'>Update your post here!</h1>
+          <h1 id='h1edit'>Update Your Post Here!</h1>
           <Form>
             <FormGroup>
               <Label className='label-color'>

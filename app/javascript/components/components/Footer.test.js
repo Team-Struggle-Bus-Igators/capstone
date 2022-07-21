@@ -10,10 +10,6 @@ describe("When the footer renders", () => {
     beforeEach(() => {
         footer = shallow(<Footer />)
     })
-    it("has three list items", () => {
-        const footerlist = footer.find("li")
-        expect(footerlist.length).toEqual(3)
-    })
     it("has some copyright text", () => {
         const footercopyright = footer.find("p")
         expect(footercopyright.text()).toEqual("© Learnify 2022")

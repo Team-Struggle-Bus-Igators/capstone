@@ -40,7 +40,7 @@ export default class PostNew extends Component {
     return (
       <>
         <div className='postnew-body'>
-          <h1 className='label-color'> <img src={Logo} /> Your Tech Peers here!</h1>
+          <h1 className='label-color'><img src={Logo} />Your Tech Peers here!</h1>
           <Form>
             <FormGroup>
               <Label className='label-color'>

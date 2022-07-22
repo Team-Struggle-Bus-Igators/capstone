@@ -51,7 +51,10 @@ body {
 
 
 .h1c {
-    font-size: xx-large;
+    font-size: 40px;
+    border-radius: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 
@@ -79,7 +82,8 @@ body {
             display: flex;
 
             #blue {
-                color: $blue-color
+                color: $blue-color;
+                padding-left: 2rem;
             }
         }
     }
@@ -215,6 +219,11 @@ body {
     height: 400px;
     width: 100%;
     max-height: 99%;
+
+}
+
+.buttons {
+    padding-left: 0%;
 }
 
 .bodyhome {
@@ -239,10 +248,11 @@ body {
 
 .home-body {
     padding-top: 1rem;
-    padding-bottom: 10rem;
+    padding-bottom: 8rem;
     font-size: x-large;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif
+    font-family: Arial, Helvetica, sans-serif;
     font-size: larger;
+    color: black;
 }
 
 .centered {
@@ -251,6 +261,8 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
+    border-radius: 20px;
+
 }
 
 
@@ -261,6 +273,7 @@ h1 {
 
 .postnew-body {
     background-color: $blue-color;
+    width: auto;
 }
 
 .postnew-button {
@@ -277,9 +290,27 @@ h1 {
     color: black;
 }
 
-.form-control1 {
-    padding-bottom: 5rem;
-    line-break: auto;
+.content-box {
+    padding-bottom: 3rem;
+    width: 100%;
+    box-lines: multiple;
+    flex-wrap: wrap;
+
+}
+
+.form-control {
+    flex-wrap: wrap;
+    display: flex;
+
+}
+
+
+.postnew-logo {
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
 }
 
 // postedit
@@ -363,57 +394,60 @@ h1 {
 }
 
 //about__us page
-.aboutus__component{
+.aboutus__component {
     background-color: #4cc9f0;
 
     .LFYlogo {
-        display:flex;
+        display: flex;
         justify-content: center;
         margin: auto;
         padding-top: 3rem;
     }
-    
+
     .header-p {
-        display:flex;
+        display: flex;
         flex-direction: column;
         text-align: center;
         margin: 2rem;
         color: black;
     }
-        
+
     .aboutus__cards {
-        display: flex;                  
-        flex-direction: row;           
-        flex-wrap: nowrap;              
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-around;
         padding-bottom: 5rem;
 
         .card {
             border-radius: 50px;
-            height: 1000px;
-        
+            height: 800px;
+
             .headshot {
                 border-radius: 50%;
-                padding: 1rem;
+                padding: 2rem;
+                height: 370px;
+                width: 334px;
             }
-            
+
             .card-body {
-                display:flex;
+                display: flex;
                 flex-direction: column;
                 text-align: center;
             }
 
-            .socials__div{
-                display: flex;                  
-                flex-direction: row;                         
+            .socials__div {
+                display: flex;
+                flex-direction: row;
                 justify-content: space-between;
-                
+
                 .github__icon {
                     height: 75px;
                     width: 75px;
                     margin-left: 3rem;
+
                 }
-        
+
                 .linkedin__icon {
                     height: 75px;
                     width: 75px;
@@ -421,7 +455,7 @@ h1 {
                 }
             }
         }
-    }        
+    }
 }
 
 .show__component {
@@ -432,7 +466,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    
+
 
     .show__card {
         display: flex;
@@ -442,11 +476,11 @@ h1 {
         background: none;
 
         .card-body {
-            width: auto;    
+            width: auto;
         }
 
         .card__title {
-            display: flex;                  
+            display: flex;
             flex-direction: column;
             text-align: center;
             font-weight: bold;
@@ -459,23 +493,23 @@ h1 {
             }
         }
 
-        #card__author{
+        #card__author {
             font-size: 25px;
             margin-top: 1rem;
             color: black;
         }
 
         .cohort__date {
-            display: flex;                  
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
             font-size: 25px;
             color: black;
             padding-bottom: 1rem;
         }
-        
+
         .image__content__button {
-            display: flex;                  
+            display: flex;
             flex-direction: column;
             align-items: center;
             padding-bottom: 3rem;
@@ -494,15 +528,15 @@ h1 {
                 box-shadow: 0 0 10px yellow;
                 text-align: center;
             }
-        } 
+        }
 
         .protected__show {
-            display: flex;                  
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
             margin: auto;
             padding-bottom: 3rem;
-            
+
             // #edit {
             //     margin-right: 15px;
             // }
@@ -515,4 +549,3 @@ h1 {
         }
     }
 }
-

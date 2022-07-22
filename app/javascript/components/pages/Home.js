@@ -2,10 +2,12 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../assets/Learnify.svg'
 import HomePage from '../assets/HomePage.jpg'
+import { NavItem } from 'reactstrap'
 
 
 class Home extends Component {
   render() {
+
     return (
       <>
         <div className='home-component'>
@@ -14,9 +16,9 @@ class Home extends Component {
             <h1 className='h1c'>Welcome to <img src={Logo} /></h1>
           </div>
           <div>
-            <ul>
+            <ul className='buttons'>
               <NavLink to="/postindex"><button className="call-to-action">Learnify Yourself</button></NavLink>
-              <NavLink to="/postnew"><button className="call-to-action" >Learnify Others</button></NavLink>
+              <NavLink to=""><button className="call-to-action" >Learnify Others</button></NavLink>
             </ul>
           </div>
           <div className='home-body'>

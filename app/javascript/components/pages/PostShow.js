@@ -48,6 +48,8 @@ class PostShow extends Component {
     if (this.state.deleted) {
       return <Redirect to="/postindex" />;
     }
+    const postDate = new Date(post.updated_at)
+    const postDateString = postDate.toDateString()
     return (
       <>
         <div className="show__component">
@@ -61,7 +63,7 @@ class PostShow extends Component {
                 <CardSubtitle id="card__cohort">
                   Cohort: {post.cohort}
                 </CardSubtitle>
-                <CardSubtitle id="card__date">{post.date}</CardSubtitle>
+                <CardSubtitle id="card__date">{postDateString}</CardSubtitle>
               </div>
               <div className="image__content__button">
                 <CardImg id="image" src={post.image} alt="" />

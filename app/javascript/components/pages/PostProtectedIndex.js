@@ -20,13 +20,15 @@ class PostProtectedIndex extends Component {
           <Row xs="3">
             {usersPosts &&
               usersPosts.map((post, index) => {
+                const postDate = new Date(post.updated_at)
+                const postDateString = postDate.toDateString()
                 return (
                   <Card id="index-card" key={index}>
                     <CardBody id="card-body-index">
                       <CardTitle>{post.topic}</CardTitle>
                       <div id="card-subtitles">
                         <CardSubtitle>{post.unit}</CardSubtitle>
-                        <CardSubtitle>{post.date}</CardSubtitle>
+                        <CardSubtitle>{postDateString}</CardSubtitle>
                       </div>
                       <CardImg
                         id="card-image"

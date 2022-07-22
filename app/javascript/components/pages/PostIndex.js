@@ -154,13 +154,15 @@ class PostIndex extends Component {
                 {posts && (
                   <Row xs="3">
                     {posts.slice(0, 6).map((post, index) => {
+                      const postDate = new Date(post.updated_at)
+                      const postDateString = postDate.toDateString()
                       return (
                         <Card id="index-card" key={index}>
                           <CardBody id="card-body-index">
                             <CardTitle>{post.topic}</CardTitle>
                             <div id="card-subtitles">
                               <CardSubtitle>{post.unit}</CardSubtitle>
-                              <CardSubtitle>{post.date}</CardSubtitle>
+                              <CardSubtitle>{postDateString}</CardSubtitle>
                             </div>
                             <CardImg
                               id="card-image"
@@ -189,13 +191,15 @@ class PostIndex extends Component {
               <div className="grid-index">
                 <Row xs="3">
                   {filteredPosts.map((post, index) => {
+                    const postDate = new Date(post.updated_at)
+                    const postDateString = postDate.toDateString()
                     return (
                       <Card className="index-card" key={index}>
                         <CardBody className="card-body-index">
                           <CardTitle>{post.topic}</CardTitle>
                           <div className="card-subtitles">
                             <CardSubtitle>{post.unit}</CardSubtitle>
-                            <CardSubtitle>{post.date}</CardSubtitle>
+                            <CardSubtitle>{postDateString}</CardSubtitle>
                           </div>
                           <CardImg
                             id="card-image"

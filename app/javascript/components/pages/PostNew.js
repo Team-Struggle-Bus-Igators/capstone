@@ -135,16 +135,6 @@ export default class PostNew extends Component {
             </FormGroup>
             <FormGroup>
               <Label className='label-color'>
-                Date*
-              </Label>
-              <Input
-                onChange={this.handleChange}
-                name="date"
-                type="date"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label className='label-color'>
                 Cohort*
               </Label>
               <Input

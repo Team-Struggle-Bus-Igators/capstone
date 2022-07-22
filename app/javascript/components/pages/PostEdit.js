@@ -14,7 +14,6 @@ export default class PostEdit extends Component {
         topic: "",
         author: "",
         content: "",
-        date: "",
         cohort: "",
         link: "",
         user_id: ""
@@ -34,7 +33,7 @@ export default class PostEdit extends Component {
   }
 
   handleSubmit = () => {
-    this.props.editPost(this.state.updatedPost, this.props.post.id)
+    this.props.editPost(this.state.updatedPost, this.props.id)
     this.setState({ submitted: true })
   }
 
@@ -101,17 +100,6 @@ export default class PostEdit extends Component {
             </FormGroup>
             <FormGroup>
               <Label className='label-color'>
-                Date*
-              </Label>
-              <Input
-                onChange={this.handleChange}
-                name="date"
-                type="date"
-                value={this.state.updatedPost.date}
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label className='label-color'>
                 Cohort*
               </Label>
               <Input
@@ -160,7 +148,7 @@ export default class PostEdit extends Component {
               </Button>
             </div>
             {this.state.submitted ? alert("Your post has been successfully updated") : null}
-            {this.state.submitted ? <Redirect to={`/postshow/${post.id}`} /> : null}
+            {this.state.submitted ? <Redirect to={`/postshow/${id}`} /> : null}
           </Form>
         </div>
       </>

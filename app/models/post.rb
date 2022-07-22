@@ -1,5 +1,5 @@
 class Post < ApplicationRecord
-    validates :post_type, :unit, :topic, :author, :content, :date, :cohort, presence: true
+    validates :post_type, :unit, :topic, :author, :content, :cohort, presence: true
     validates :image, length: { minimum: 8 }
     validates :content, length: {minimum: 75}
     belongs_to :user

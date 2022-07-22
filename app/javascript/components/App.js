@@ -78,7 +78,7 @@ class App extends Component {
         <Header {...this.props} />
         <ScrollToTop>
           <Switch>
-            <Route exact path="/" {...this.props} component={Home} />
+            <Route exact path="/" render={() => <Home {...this.props} />} />
             <Route path="/postindex" render={() => <PostIndex posts={this.state.posts} />} />
             <Route path="/postprotectedindex" render={() => <PostProtectedIndex {...this.props} posts={this.state.posts} />} />
             <Route path="/postnew" render={() => <PostNew {...this.props} createPost={this.createPost} />} />

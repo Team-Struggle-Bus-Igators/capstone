@@ -151,7 +151,7 @@ export default class PostNew extends Component {
               <Input className='content-box'
                 onChange={this.handleChange}
                 name="content"
-                type="text-area"
+                type="textarea" rows="5"
                 placeholder='Type Your Content Here'
               />
             </FormGroup>

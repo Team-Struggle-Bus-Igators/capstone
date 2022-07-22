@@ -7,7 +7,11 @@ import { NavItem } from 'reactstrap'
 
 class Home extends Component {
   render() {
-
+    const {
+      logged_in,
+      new_user_route,
+      sign_in_route,
+    } = this.props
     return (
       <>
         <div className='home-component'>
@@ -17,8 +21,13 @@ class Home extends Component {
           </div>
           <div>
             <ul className='buttons'>
-              <NavLink to="/postindex"><button className="call-to-action">Learnify Yourself</button></NavLink>
-              <NavLink to=""><button className="call-to-action" >Learnify Others</button></NavLink>
+              <NavLink to="/postindex"><button className="bottom-left">Learnify Yourself</button></NavLink>
+              {logged_in &&
+                <NavLink to='/postnew'><button className="bottom-right" >Learnify Others</button></NavLink>
+              }
+              {!logged_in &&
+                <a href={sign_in_route} className="bottom-right"> Learnify Others</a>
+              }
             </ul>
           </div>
           <div className='home-body'>

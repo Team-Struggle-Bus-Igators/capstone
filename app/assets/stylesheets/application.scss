@@ -216,7 +216,7 @@ body {
 .image-1 {
     flex: 1;
     width: fit-content;
-    height: 400px;
+    height: 450px;
     width: 100%;
     max-height: 99%;
 
@@ -236,15 +236,16 @@ body {
     background-color: $blue-color;
 }
 
-.call-to-action {
-    color: $purple-color;
-    background-color: black;
-    font-size: larger;
-    padding-left: 30px;
-    padding-right: 30px;
-    margin-left: 30px;
-    margin-right: 30px;
-}
+// .call-to-action {
+//     color: $purple-color;
+//     background-color: black;
+//     font-size: larger;
+//     // padding-left: 30px;
+//     // padding-right: 30px;
+//     margin-left: 30px;
+//     margin-right: 30px;
+//     border-radius: 20px;
+// }
 
 .home-body {
     padding-top: 1rem;
@@ -262,8 +263,33 @@ body {
     transform: translate(-50%, -50%);
     background-color: black;
     border-radius: 20px;
-
 }
+
+.bottom-left {
+    position: absolute;
+    bottom: 250px;
+    left: 400px;
+    border-radius: 20px;
+    color: $purple-color;
+    background-color: black;
+    font-size: x-large;
+}
+
+.bottom-right {
+    position: absolute;
+    bottom: 250px;
+    right: 400px;
+    border-radius: 20px;
+    color: $purple-color;
+    background-color: black;
+    font-size: x-large;
+}
+
+.bottom-left:hover,
+.bottom-right:hover {
+    color: $pink-color;
+}
+
 
 
 // postNew
@@ -293,8 +319,7 @@ h1 {
 .content-box {
     padding-bottom: 3rem;
     width: 100%;
-    box-lines: multiple;
-    flex-wrap: wrap;
+    resize: none;
 
 }
 
@@ -427,7 +452,7 @@ h1 {
                 border-radius: 50%;
                 padding: 2rem;
                 height: 370px;
-                width: 334px;
+                width: 340px;
             }
 
             .card-body {

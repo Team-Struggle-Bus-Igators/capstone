@@ -40,7 +40,8 @@ export default class PostNew extends Component {
     return (
       <>
         <div className='postnew-body'>
-          <h1 className='label-color'> <img src={Logo} /> Your Tech Peers here!</h1>
+
+          <h1 className='postnew-logo'> <img src={Logo} /> Your Tech Peers here!</h1>
           <Form>
             <FormGroup>
               <Label className='label-color'>
@@ -147,7 +148,7 @@ export default class PostNew extends Component {
               <Label className='label-color'>
                 Content*
               </Label>
-              <Input className='form-control1'
+              <Input className='content-box'
                 onChange={this.handleChange}
                 name="content"
                 type="text-area"

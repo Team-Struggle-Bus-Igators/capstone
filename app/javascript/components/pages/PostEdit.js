@@ -113,7 +113,7 @@ export default class PostEdit extends Component {
               <Label className='label-color'>
                 Content*
               </Label>
-              <Input className='form-control1'
+              <Input className='content-box'
                 onChange={this.handleChange}
                 name="content"
                 type="text-area"

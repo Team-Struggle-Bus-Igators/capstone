@@ -40,7 +40,7 @@ export default class PostNew extends Component {
     return (
       <>
         <div className='postnew-body'>
-          <h1 className='label-color'><img src={Logo} />Your Tech Peers here!</h1>
+          <h1 className='postnew-logo'> <img src={Logo} /> Your Tech Peers here!</h1>
           <Form>
             <FormGroup>
               <Label className='label-color'>
@@ -117,6 +117,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="topic"
                 type="text"
+                placeholder='Your Topic'
               />
             </FormGroup>
             <FormGroup>
@@ -127,16 +128,8 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="author"
                 type="text"
-              />
-            </FormGroup>
-            <FormGroup>
-              <Label className='label-color'>
-                Date*
-              </Label>
-              <Input
-                onChange={this.handleChange}
-                name="date"
-                type="date"
+                placeholder='Your Name Here'
+
               />
             </FormGroup>
             <FormGroup>
@@ -147,16 +140,18 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="cohort"
                 type="text"
+                placeholder='Name and Year of Cohort'
               />
             </FormGroup>
             <FormGroup>
               <Label className='label-color'>
                 Content*
               </Label>
-              <Input className='form-control1'
+              <Input className='content-box'
                 onChange={this.handleChange}
                 name="content"
                 type="text-area"
+                placeholder='Type Your Content Here'
               />
             </FormGroup>
             <FormGroup>
@@ -167,6 +162,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="link"
                 type="text"
+                placeholder='Helpful Link Here'
               />
             </FormGroup>
             <FormGroup>
@@ -177,6 +173,7 @@ export default class PostNew extends Component {
                 onChange={this.handleChange}
                 name="image"
                 type="text"
+                placeholder='Upload Image Here'
               />
             </FormGroup>
             <div className='postnew-button'>

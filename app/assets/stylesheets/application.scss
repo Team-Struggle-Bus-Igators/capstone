@@ -28,19 +28,19 @@ $gray-color: #131313;
 
 @mixin scrollbar($size, $foreground-color, $background-color) {
     &::-webkit-scrollbar {
-      width:  $size;
-      height: $size;
+        width: $size;
+        height: $size;
     }
-  
+
     &::-webkit-scrollbar-thumb {
-      background: $foreground-color;
-      border-radius: 25px;
+        background: $foreground-color;
+        border-radius: 25px;
     }
-  
+
     &::-webkit-scrollbar-track {
-      background: $background-color;
+        background: $background-color;
     }
-  }
+}
 
 body {
     font-family: 'JockeyOne';
@@ -51,7 +51,10 @@ body {
 
 
 .h1c {
-    font-size: xx-large;
+    font-size: 40px;
+    border-radius: 20px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 
@@ -64,6 +67,7 @@ body {
 .navbar {
     display: flex;
     justify-content: center;
+
     .container-fluid {
         display: flex;
         flex-direction: row;
@@ -71,20 +75,25 @@ body {
         align-items: center;
         width: 100%;
         height: 5em;
+
         #nav-container {
             justify-content: center;
             align-items: center;
             display: flex;
+
             #blue {
-                color: $blue-color
+                color: $blue-color;
+                padding-left: 2rem;
             }
         }
     }
+
     .navbar-nav {
         display: flex;
         justify-content: flex-end !important;
         align-items: center;
         flex-direction: row;
+
         .nav-link {
             margin: 0 3em;
             color: $pink-color
@@ -106,72 +115,91 @@ body {
     width: 100%;
     padding-top: 3em;
     @include background("background.jpg");
+
     h1 {
         text-align: center;
     }
+
     h2 {
         text-align: center;
     }
+
     .dropdown-button {
         margin: 0 5em;
+
         .btn:focus {
             box-shadow: none;
         }
+
         .btn-secondary {
             color: $blue-color;
             background-color: black;
             border-color: white;
+
             .dropdown-toggle:focus {
                 box-shadow: none;
             }
         }
+
         .btn-secondary:focus {
             box-shadow: none;
         }
+
         .btn-secondary:hover {
             color: $blue-color;
             background-color: $gray-color;
             border-color: white;
         }
+
         .dropdown-menu {
             background-color: black;
             height: auto;
+
             .dropdown-header {
                 color: $blue-color
             }
+
             .dropdown-item {
                 color: $pink-color;
                 height: auto;
             }
+
             .dropdown-item:hover {
                 color: $purple-color;
                 background-color: $gray-color;
             }
+
             .dropdown-divider {
                 background-color: white;
             }
         }
     }
+
     .grid-index {
         margin: 4em 0;
         overflow-x: hidden;
+
         .row {
             display: flex;
             justify-content: center;
         }
+
         .card {
             background-color: $gray-color;
             text-align: center;
             border: solid 1px white;
             border-radius: 0;
             margin: 2em;
+
             .card-subtitles {
                 display: flex;
                 justify-content: space-between;
             }
+
             .card-subtitle {
                 margin: .5em 0;
             }
+
             .info-button {
                 border: solid 1px white;
                 color: $blue-color;
@@ -189,8 +217,13 @@ body {
     flex: 1;
     width: fit-content;
     height: 400px;
-    width: 90rem;
+    width: 100%;
     max-height: 99%;
+
+}
+
+.buttons {
+    padding-left: 0%;
 }
 
 .bodyhome {
@@ -214,7 +247,12 @@ body {
 }
 
 .home-body {
+    padding-top: 1rem;
+    padding-bottom: 8rem;
+    font-size: x-large;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: larger;
+    color: black;
 }
 
 .centered {
@@ -223,12 +261,9 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     background-color: black;
+    border-radius: 20px;
+
 }
-
-
-
-
-
 
 
 // postNew
@@ -238,11 +273,13 @@ h1 {
 
 .postnew-body {
     background-color: $blue-color;
+    width: auto;
 }
 
 .postnew-button {
     margin: auto;
     text-align: center;
+    padding-bottom: 1cm;
 }
 
 #button-color {
@@ -253,8 +290,32 @@ h1 {
     color: black;
 }
 
-.form-control1 {
-    padding-bottom: 5rem;
+.content-box {
+    padding-bottom: 3rem;
+    width: 100%;
+    box-lines: multiple;
+    flex-wrap: wrap;
+
+}
+
+.form-control {
+    flex-wrap: wrap;
+    display: flex;
+
+}
+
+
+.postnew-logo {
+    background-color: white;
+    color: black;
+    text-align: center;
+    margin-left: 25%;
+    margin-right: 25%;
+}
+
+// postedit
+#h1edit {
+    color: black;
 }
 
 
@@ -285,17 +346,30 @@ h1 {
     position: fixed;
 }
 
-
 .about-us {
     color: $pink-color;
+    font-size: smaller;
+    text-decoration: none;
+}
+
+.about-us:hover {
+    color: $purple-color;
 }
 
 .back-home {
     color: $blue-color;
+    font-size: smaller;
+    text-decoration: none;
+
+}
+
+.back-home:hover {
+    color: $pink-color;
 }
 
 .footer-name {
     color: $purple-color;
+    font-size: smaller;
 }
 
 
@@ -320,57 +394,60 @@ h1 {
 }
 
 //about__us page
-.aboutus__component{
+.aboutus__component {
     background-color: #4cc9f0;
 
     .LFYlogo {
-        display:flex;
+        display: flex;
         justify-content: center;
         margin: auto;
         padding-top: 3rem;
     }
-    
+
     .header-p {
-        display:flex;
+        display: flex;
         flex-direction: column;
         text-align: center;
         margin: 2rem;
         color: black;
     }
-        
+
     .aboutus__cards {
-        display: flex;                  
-        flex-direction: row;           
-        flex-wrap: nowrap;              
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
         justify-content: space-around;
         padding-bottom: 5rem;
 
         .card {
             border-radius: 50px;
-            height: 1000px;
-        
+            height: 800px;
+
             .headshot {
                 border-radius: 50%;
-                padding: 1rem;
+                padding: 2rem;
+                height: 370px;
+                width: 334px;
             }
-            
+
             .card-body {
-                display:flex;
+                display: flex;
                 flex-direction: column;
                 text-align: center;
             }
 
-            .socials__div{
-                display: flex;                  
-                flex-direction: row;                         
+            .socials__div {
+                display: flex;
+                flex-direction: row;
                 justify-content: space-between;
-                
+
                 .github__icon {
                     height: 75px;
                     width: 75px;
                     margin-left: 3rem;
+
                 }
-        
+
                 .linkedin__icon {
                     height: 75px;
                     width: 75px;
@@ -378,7 +455,7 @@ h1 {
                 }
             }
         }
-    }        
+    }
 }
 
 .show__component {
@@ -389,7 +466,7 @@ h1 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-    
+
 
     .show__card {
         display: flex;
@@ -399,11 +476,11 @@ h1 {
         background: none;
 
         .card-body {
-            width: auto;    
+            width: auto;
         }
 
         .card__title {
-            display: flex;                  
+            display: flex;
             flex-direction: column;
             text-align: center;
             font-weight: bold;
@@ -416,23 +493,23 @@ h1 {
             }
         }
 
-        #card__author{
+        #card__author {
             font-size: 25px;
             margin-top: 1rem;
             color: black;
         }
 
         .cohort__date {
-            display: flex;                  
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
             font-size: 25px;
             color: black;
             padding-bottom: 1rem;
         }
-        
+
         .image__content__button {
-            display: flex;                  
+            display: flex;
             flex-direction: column;
             align-items: center;
             padding-bottom: 3rem;
@@ -451,15 +528,15 @@ h1 {
                 box-shadow: 0 0 10px yellow;
                 text-align: center;
             }
-        } 
+        }
 
         .protected__show {
-            display: flex;                  
+            display: flex;
             flex-direction: row;
             justify-content: space-between;
             margin: auto;
             padding-bottom: 3rem;
-            
+
             // #edit {
             //     margin-right: 15px;
             // }
@@ -472,4 +549,3 @@ h1 {
         }
     }
 }
-

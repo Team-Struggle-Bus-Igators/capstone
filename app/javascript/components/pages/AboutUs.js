@@ -119,7 +119,7 @@ export default class AboutUs extends Component {
                     About Me!
                   </CardSubtitle>
                   <CardText>
-                    Hello, my name is Geovanna Perez and I am a full stack web developer with experience on React and Ruby on Rails. On my spare time I enjoy watching movies. Thank you for taking the time to meet us!
+                    Hello, my name is Geovanna Perez and I am a full stack web developer with experience on React and Ruby on Rails. On my spare time I enjoy watching movies, hiking and going to the beach. I am super proud of what my team has created and we hope it helps you thorugh this amazing journey. Thank you for visiting our page and taking the time to meet us!
                   </CardText>
                   <div className="socials__div">
                     <a

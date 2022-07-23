@@ -11,7 +11,6 @@ RSpec.describe "Posts", type: :request do
       topic: "Desk",
       author: "Me",
       content: "This is some content that needs about seventy five characters to submit so I think this is enough",
-      date: "2020-01-28 05:40:30",
       cohort: "Charlie",
       link: "https://www.youtube.com/",
     )
@@ -41,7 +40,6 @@ RSpec.describe "Posts", type: :request do
           topic: "Desk",
           author: "Me",
           content: "This is some content that needs about seventy five characters to submit so I think this is enough",
-          date: "2020-01-28 05:40:30",
           cohort: "Charlie",
           link: "https://www.youtube.com/",
           user_id: user.id
@@ -74,7 +72,6 @@ RSpec.describe "Posts", type: :request do
           topic: "Chicken here",
           author: "Me",
           content: "This is some content that needs about seventy five characters to submit so I think this is enough",
-          date: "2020-01-28 05:40:30",
           cohort: "Charlie",
           link: "https://www.youtube.com/",
           user_id: user.id

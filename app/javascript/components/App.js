@@ -73,7 +73,6 @@ class App extends Component {
   }
 
   render() {
-    console.log(this.state.quote)
     return (
       <Router>
         <Header {...this.props} />

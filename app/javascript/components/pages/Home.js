@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { NavLink } from 'react-router-dom'
 import Logo from '../assets/Learnify.svg'
 import HomePage from '../assets/HomePage.jpg'
-import { NavItem } from 'reactstrap'
-
 
 class Home extends Component {
   constructor(props) {

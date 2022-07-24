@@ -39,6 +39,23 @@ export default class Comments extends Component {
       .catch((err) => console.log("Comment create errors", err))
   }
 
+  handleDelete = (id) => {
+    alert("Comment Deleted")
+    this.deleteComment(id)
+  }
+
+  deleteComment = (id) => {
+    fetch(`/comments/${id}`, {
+      headers: {
+        "Content-Type": "application/json"
+      },
+      method: "DELETE"
+    })
+    .then(response => response.json())
+    .then(payload => this.props.readPost())
+    .catch(errors => console.log("delete errors:", errors))
+  }
+
   handleChange = (e) => {
     let targetName = e.target.name
     let targetValue = e.target.value
@@ -50,9 +67,9 @@ export default class Comments extends Component {
   render() {
     const { comments } = this.props
     return (
-      <div>
+      <div id="comment-form-container">
         <h1>Comments:</h1>
-        <Form>
+        <Form id="comment-form">
           <FormGroup>
             <Label>Comment</Label>
             <Input
@@ -61,7 +78,7 @@ export default class Comments extends Component {
               placeholder="Enter your comment here"
               onChange={this.handleChange}
             />
-            <Button onClick={this.handleSubmit}>Comment</Button>
+            <Button color="success" onClick={this.handleSubmit}>Comment</Button>
           </FormGroup>
         </Form>
         {comments.map((comment, index) => {
@@ -69,11 +86,16 @@ export default class Comments extends Component {
           const user = current_user.id === comment.user_id
           return (
             <Card id="comment-card" key={index} className="my-2" width="100%">
-              <CardBody>
+              <CardBody id="card-body">
                 <CardTitle tag="h5">
                   Posted by User: {comment.user_id}
                 </CardTitle>
                 <CardText>{comment.remark}</CardText>
+                {user && 
+                  <div id="button-container">
+                    <Button onClick={() => this.handleDelete(comment.id)} color="danger">Delete</Button>
+                  </div>
+                }
               </CardBody>
             </Card>
           )

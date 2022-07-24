@@ -94,7 +94,7 @@ class PostShow extends Component {
         {logged_in ?
           <Comments readPost={this.readPost} current_user={current_user} post={post} comments={post.comments.reverse()}/>
           :
-          <h2>Log in to view comments</h2>
+          <h2 id="comment-section">Log in to view comments</h2>
         }
       </>
     );

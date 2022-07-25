@@ -215,11 +215,10 @@ body {
 
 .image-1 {
     flex: 1;
-    width: fit-content;
+    width: 100%;
     height: 450px;
     width: 100%;
     max-height: 99%;
-
 }
 
 .buttons {
@@ -289,6 +288,7 @@ body {
     padding-left: 20px;
     padding-right: 20px;
     cursor: pointer;
+    border: none;
 }
 
 .bottom-left:hover,
@@ -556,6 +556,7 @@ h1 {
                 border-radius: 20px;
                 box-shadow: 0 0 10px yellow;
                 text-align: center;
+                padding: .5rem;
             }
         }
 
@@ -618,4 +619,9 @@ h1 {
             margin: 0 1rem;
         }
     }
+}
+
+#quote {
+    color: black;
+    transform: translate(0, -80%)
 }

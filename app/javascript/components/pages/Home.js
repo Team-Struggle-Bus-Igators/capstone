@@ -17,12 +17,13 @@ class Home extends Component {
           <div className='centered'>
             <h1 className='h1c'>Welcome to <img src={Logo} /></h1>
           </div>
-          <div>
+          <div className='buttons'>
             <NavLink to="/postindex"><button className="bottom-left">Learnify Yourself</button></NavLink>
-            {logged_in ?
+            {logged_in &&
               <NavLink to='/postnew'><button className="bottom-right" >Learnify Others</button></NavLink>
-              :
-              <a className="bottom-right" href={sign_in_route}>Learnify Others</a>
+            }
+            {!logged_in &&
+              <a href={sign_in_route} className="bottom-right"> Learnify Others</a>
             }
           </div>
           <div className='home-body'>

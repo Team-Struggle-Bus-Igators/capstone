@@ -42,7 +42,7 @@ export default class AboutUs extends Component {
                 <CardBody>
                   <CardTitle tag="h5">Collin O'Connor</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    About Me!
+                    Product / Project Manager
                   </CardSubtitle>
                   <CardText>
                     Hi, I am a full stack web developer with front-end and backend experience including technologies such as react, rails, javascript and ruby. My prior work history includes military service of over 4 years and hospitality in the restaurant industry. Working in a team environment is something I enjoy as it makes work extra fun when collaborating with others. Some hobbies of mine are traveling, riding motorcycles and physical fitness. Thank you for visiting our page!
@@ -79,7 +79,7 @@ export default class AboutUs extends Component {
                 <CardBody>
                   <CardTitle tag="h5">Logan Ramos</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    About Me!
+                    Tech Lead
                   </CardSubtitle>
                   <CardText>
                     Hello, my name is Logan Ramos. I am currently a full stack software engineer who primarily works with React and Rails on a daily basis. I enjoy learning about new technologies and what we can do with them. In my free time I primarily play video games which is what led me into this field of work, I always wanted to know what happened behind the scenes.
@@ -116,7 +116,7 @@ export default class AboutUs extends Component {
                 <CardBody>
                   <CardTitle tag="h5">Geovanna Perez</CardTitle>
                   <CardSubtitle className="mb-2 text-muted" tag="h6">
-                    About Me!
+                    Design Lead
                   </CardSubtitle>
                   <CardText>
                     Hello, my name is Geovanna Perez and I am a full stack web developer with experience on React and Ruby on Rails. On my spare time I enjoy watching movies, hiking and going to the beach. I am super proud of what my team has created and we hope it helps you thorugh this amazing journey. Thank you for visiting our page and taking the time to meet us!

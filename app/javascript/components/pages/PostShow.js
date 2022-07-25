@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { NavLink, Redirect, Link } from "react-router-dom";
+import Comments from '../components/Comments'
 import {
   Card,
   CardImg,
@@ -90,6 +91,11 @@ class PostShow extends Component {
             </CardBody>
           </Card>
         </div>
+        {logged_in ?
+          <Comments readPost={this.readPost} current_user={current_user} post={post} comments={post.comments.reverse()}/>
+          :
+          <h2 id="comment-section">Log in to view comments</h2>
+        }
       </>
     );
   }

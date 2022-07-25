@@ -3,9 +3,28 @@ import { NavLink, Redirect } from 'react-router-dom'
 import Logo from '../assets/Learnify.svg'
 import HomePage from '../assets/HomePage.jpg'
 
-
 class Home extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      quotes: "loading..."
+    }
+  }
+
+  componentDidMount = () => {
+    this.readQuote()
+  }
+
+  readQuote = () => {
+    fetch('https://type.fit/api/quotes')
+    .then(res => res.json())
+    .then(payload =>this.setState({ quotes: payload }))
+    .catch(errors => console.log(errors))
+  }
+  
   render() {
+    const random = Math.floor(Math.random() * this.state.quotes.length)
+    const rQuote = this.state.quotes[random]
     const {
       logged_in,
       sign_in_route,
@@ -17,6 +36,8 @@ class Home extends Component {
           <div className='centered'>
             <h1 className='h1c'>Welcome to <img src={Logo} /></h1>
           </div>
+          <h2>{rQuote.text}</h2>
+          <h3>- {rQuote.author}</h3>
           <div className='buttons'>
             <NavLink to="/postindex"><button className="bottom-left">Learnify Yourself</button></NavLink>
             {logged_in &&

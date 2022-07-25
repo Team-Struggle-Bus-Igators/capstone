@@ -13,11 +13,29 @@ describe("when PostNew renders", () => {
     })
     it("renders a heading", () => {
         const postHeading = postNew.find("h1")
-        expect(postHeading.text()).toEqual("Learnify your tech peers here!")
+        expect(postHeading.text()).toEqual("Your Tech Peers here!")
     })
     it("has a form", () => {
         const postForm = postNew.find("Form")
         expect(postForm.length).toEqual(1)
+    })
+    describe("when form renders", () => {
+        let form
+        beforeEach(() => {
+            form = postNew.find("Form")
+        })
+        it("has groups for each field in the form", () => {
+            const formGroups = form.find("FormGroup").length
+            expect(formGroups).toEqual(9)
+        })
+        it("gives a label to the fields", () => {
+            const formLabels = form.find("Label").length
+            expect(formLabels).toEqual(9)
+        })
+        it("gives a box to input data", () => {
+            const formInputs = form.find("Input").length
+            expect(formInputs).toEqual(9)
+        })
     })
     it("has a button", () => {
         const postButton = postNew.find("Button")

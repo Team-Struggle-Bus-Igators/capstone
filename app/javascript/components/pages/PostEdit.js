@@ -116,7 +116,7 @@ export default class PostEdit extends Component {
               <Input className='content-box'
                 onChange={this.handleChange}
                 name="content"
-                type="text-area"
+                type="textarea" rows="5"
                 value={this.state.updatedPost.content}
               />
             </FormGroup>

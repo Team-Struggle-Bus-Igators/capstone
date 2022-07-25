@@ -461,12 +461,10 @@ h1 {
 .show__component {
     height: auto;
     width: 100%;
-    // background-color: #4cc9f0;
     background-image: url("show_background.jpg");
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
-
 
     .show__card {
         display: flex;
@@ -537,15 +535,56 @@ h1 {
             margin: auto;
             padding-bottom: 3rem;
 
-            // #edit {
-            //     margin-right: 15px;
-            // }
-
             #delete {
                 margin-left: 15px;
                 color: black;
             }
 
+        }
+    }
+}
+
+#comment-card {
+    color: black;
+}
+
+#comment-section {
+    margin: 2rem 0 3rem 0 ;
+    text-align: center;
+}
+
+#comment-form-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    #comment-form {
+        width: 40%;
+        #remark {
+            margin-bottom: 1rem;
+        }
+        button {
+            margin-bottom: 1rem;
+        }
+    }
+}
+
+#comment-card {
+    width: 50%;
+    align-items: center;
+    flex-direction: column;
+    display: flex;
+    margin-bottom: 2rem !important;
+    #card-body {
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        display: flex;
+    }
+    #button-container {
+        justify-content: center;
+        display: flex;
+        button {
+            margin: 0 1rem;
         }
     }
 }
